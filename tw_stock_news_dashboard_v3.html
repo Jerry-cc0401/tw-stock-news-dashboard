@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台股題材新聞儀表板 v3</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#667085;--line:#e5e7ef;--blue:#2952cc;--blue2:#edf2ff;--green:#087443;--green2:#ecfdf3;--amber:#b54708;--amber2:#fff7ed;--red:#b42318;--red2:#fee4e2;--shadow:0 12px 30px rgba(16,24,40,.08);--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#eef4ff 0,#f8fafc 36%,#f5f7fb 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;line-height:1.65}
+header{max-width:1260px;margin:auto;padding:26px 18px 12px}
+h1{margin:0;font-size:30px;letter-spacing:.02em}
+.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.layout{max-width:1260px;margin:0 auto 40px;padding:0 18px;display:grid;grid-template-columns:300px 1fr;gap:18px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}h1{font-size:24px}}
+.panel{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+aside.panel{padding:16px;position:sticky;top:12px;align-self:start}
+main{display:grid;gap:16px}
+.card{padding:18px}
+.topbar{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+button,input,select{font:inherit;border-radius:12px;border:1px solid #d0d5dd;padding:10px 12px}
+button{border:0;background:var(--blue);color:#fff;font-weight:650;cursor:pointer}
+button.secondary{background:#eef2f6;color:#344054}
+input,select{width:100%;background:#fff;color:var(--text)}
+label{font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.topicnav{display:grid;gap:8px;margin-top:10px}
+.topicbtn{text-align:left;border:1px solid var(--line);background:#fff;color:var(--text);font-weight:650}
+.topicbtn.active{background:var(--blue2);border-color:#84adff;color:#1d3fa3}
+.pillrow{display:flex;gap:6px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:#f2f4f7;border:1px solid #e4e7ec;color:#344054;font-size:12px}
+.pill.holding{background:var(--green2);color:var(--green);border-color:#abefc6}
+.pill.watch{background:var(--amber2);color:var(--amber);border-color:#fed7aa}
+.pill.gradeA{background:var(--green2);color:var(--green);border-color:#abefc6}
+.pill.gradeB{background:var(--blue2);color:#1d3fa3;border-color:#84adff}
+.pill.gradeC{background:#f2f4f7;color:#475467}
+.small{font-size:12px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.summary{background:linear-gradient(135deg,#f8fbff,#eef4ff);border:1px solid #dbe7ff;border-radius:16px;padding:14px}
+.bias{font-size:28px;font-weight:800;margin:4px 0}
+.bias.pos{color:var(--green)}.bias.neu{color:var(--amber)}.bias.neg{color:var(--red)}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+@media(max-width:760px){.kpi{grid-template-columns:1fr 1fr}}
+.kpicard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.kpicard strong{display:block;font-size:18px}
+.sectiontitle{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px}
+.sectiontitle h2{margin:0;font-size:22px}
+.tablewrap{overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}
+th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top;font-size:14px}
+th{background:#f8fafc;color:#344054;white-space:nowrap}
+.heatbar{height:9px;background:#eef2f6;border-radius:99px;overflow:hidden;min-width:90px}
+.heatbar>div{height:100%;background:linear-gradient(90deg,#84adff,#2952cc);border-radius:99px}
+.newsitem{border-left:4px solid #84adff;background:#fbfcff;border-radius:0 14px 14px 0;padding:12px 14px;margin:10px 0}
+.newsitem.focus{border-left-color:#f79009;background:#fffcf5}
+.newsitem h3{margin:0 0 6px;font-size:17px}
+.newsitem p{margin:6px 0}
+a{color:#1d4ed8;text-decoration:none}
+a:hover{text-decoration:underline}
+.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.warn{background:var(--amber2);border:1px solid #fed7aa;color:#7a2e0e;border-radius:14px;padding:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.hidden{display:none}
+pre{white-space:pre-wrap;background:#101828;color:#fff;border-radius:14px;padding:12px;overflow:auto;font-size:12px}
+.footer{color:var(--muted);font-size:12px;padding:0 18px 20px}
+@media print{aside,.actions{display:none!important}.layout{display:block}.panel{box-shadow:none}.newsitem,table{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div>
+      <h1>台股題材新聞儀表板 v3</h1>
+      <div class="sub" id="generatedAt"></div>
+    </div>
+    <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+      <button onclick="window.print()">列印／另存 PDF</button>
+      <button class="secondary" onclick="toggleRaw()">顯示原始資料</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="panel">
+    <label>搜尋題材／股票／關鍵字</label>
+    <input id="q" placeholder="例如：散熱、CPO、2330、國巨" oninput="render()">
+    <label>題材分類</label>
+    <div class="topicnav" id="topicNav"></div>
+    <hr>
+    <strong>持有股</strong>
+    <div class="pillrow" id="holdings" style="margin-top:8px"></div>
+    <div style="margin-top:12px"><strong>關注股</strong></div>
+    <div class="pillrow" id="watchlist" style="margin-top:8px"></div>
+    <hr>
+    <div class="warn small">
+      <strong>資料提醒</strong><br>
+      自動新聞以 RSS 初篩。台指期夜盤、8:30 試撮、台幣匯率、即時價格與成交量，仍以期交所、央行、證交所、券商 App 為準。
+    </div>
+  </aside>
+
+  <main>
+    <section class="panel card" id="overview"></section>
+    <section class="panel card" id="strategy"></section>
+    <section class="panel card" id="stockImpact"></section>
+    <section class="panel card" id="topicHeat"></section>
+    <section class="panel card" id="focus"></section>
+    <section class="panel card" id="topicDetail"></section>
+    <section class="panel card hidden" id="rawBox"><pre id="raw"></pre></section>
+  </main>
+</div>
+
+<script>
+const REPORT = {
+  "generated_at": "2026-05-16 08:20",
+  "title": "台股題材新聞儀表板 v3（範例）",
+  "settings": {
+    "timezone": "Asia/Taipei",
+    "days": 2,
+    "max_items_per_topic": 12,
+    "google_news_locale": {
+      "hl": "zh-TW",
+      "gl": "TW",
+      "ceid": "TW:zh-Hant"
+    },
+    "my_holdings": {
+      "2308": "台達電",
+      "2327": "國巨",
+      "2330": "台積電",
+      "3017": "奇鋐",
+      "3044": "健鼎",
+      "3324": "雙鴻"
+    },
+    "watchlist": {
+      "7769": "鴻勁",
+      "2360": "致茂",
+      "4958": "臻鼎-KY",
+      "5347": "世界"
+    },
+    "source_grade_rules": {
+      "A_官方": [
+        "臺灣證券交易所",
+        "證交所",
+        "期交所",
+        "櫃買中心",
+        "中央銀行",
+        "公開資訊觀測站",
+        "台灣期貨交易所",
+        "TSMC",
+        "台積電"
+      ],
+      "B_主流財經": [
+        "中央社",
+        "經濟日報",
+        "工商時報",
+        "鉅亨",
+        "MoneyDJ",
+        "財訊快報",
+        "Reuters",
+        "Bloomberg",
+        "Anue",
+        "Yahoo奇摩股市"
+      ],
+      "C_參考": [
+        "其他"
+      ]
+    }
+  },
+  "market_bias": {
+    "label": "震盪輪動",
+    "reason": "這是範例資料。請執行 python fetch_news.py 後更新成最新新聞。",
+    "positive_signals": 0,
+    "negative_signals": 0,
+    "average_topic_heat": 55
+  },
+  "strategy": {
+    "action": "先完成自動更新設定",
+    "note": "執行 python fetch_news.py 後，這裡會顯示今日盤前操作提醒。",
+    "top_topics": [
+      {
+        "name": "散熱",
+        "heat_score": 70,
+        "view": "範例：散熱題材放在這裡。"
+      },
+      {
+        "name": "PCB／CCL",
+        "heat_score": 68,
+        "view": "範例：PCB 題材放在這裡。"
+      },
+      {
+        "name": "電源／電力管理",
+        "heat_score": 62,
+        "view": "範例：台達電相關題材放在這裡。"
+      }
+    ],
+    "risk_topics": [
+      {
+        "name": "高檔 AI 股",
+        "risk_flags": [
+          "開高走低",
+          "爆量不漲"
+        ]
+      }
+    ]
+  },
+  "market_note": {
+    "event": "新聞由 Google News RSS 依題材自動抓取並初步分類。",
+    "view": "台指期夜盤、8:30 試撮、台幣匯率、即時股價與成交量請以期交所、央行、證交所與券商 App 交叉確認。"
+  },
+  "focus": [
+    {
+      "title": "範例：今日焦點大事會顯示在這裡",
+      "link": "",
+      "source": "sample",
+      "published": "2026-05-16T08:20:00+08:00",
+      "event": "執行 fetch_news.py 後會自動抓最新焦點新聞。",
+      "view": "焦點大事會優先整理美股、費半、NVIDIA、台指期、台幣、外資與法說消息。",
+      "source_grade": "C_參考",
+      "matched_topics": [
+        "焦點大事"
+      ],
+      "stocks": [
+        "2330",
+        "2308"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "ai_semiconductor",
+      "name": "AI 半導體／先進封裝",
+      "description": "台積電、CoWoS、SoIC、ASIC、HBM、先進製程、測試設備與成熟製程補漲。",
+      "core_stocks": [
+        "2330",
+        "7769",
+        "2360",
+        "5347"
+      ],
+      "heat_score": 65,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：AI 半導體／先進封裝 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：AI 半導體／先進封裝 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "AI 半導體／先進封裝 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ],
+          "stocks": [
+            "2330",
+            "7769",
+            "2360",
+            "5347"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "thermal",
+      "name": "散熱",
+      "description": "液冷、均熱板、熱管、風扇、AI 伺服器散熱模組。",
+      "core_stocks": [
+        "3017",
+        "3324"
+      ],
+      "heat_score": 70,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：散熱 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：散熱 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "散熱 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "散熱"
+          ],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "optical",
+      "name": "光通訊／CPO",
+      "description": "CPO、矽光子、800G、1.6T、光模組、光收發、InP、雷射。",
+      "core_stocks": [],
+      "heat_score": 57,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：光通訊／CPO 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：光通訊／CPO 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "光通訊／CPO 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "光通訊／CPO"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "pcb_ccl",
+      "name": "PCB／CCL",
+      "description": "AI 伺服器高階 PCB、CCL、銅箔基板、高速材料、HDI、伺服器板。",
+      "core_stocks": [
+        "3044",
+        "4958"
+      ],
+      "heat_score": 68,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：PCB／CCL 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：PCB／CCL 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "PCB／CCL 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "PCB／CCL"
+          ],
+          "stocks": [
+            "3044",
+            "4958"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "passive",
+      "name": "被動元件",
+      "description": "MLCC、電阻、電感、鉭電容、AI 伺服器與車用電子需求。",
+      "core_stocks": [
+        "2327"
+      ],
+      "heat_score": 52,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：被動元件 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：被動元件 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "被動元件 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "被動元件"
+          ],
+          "stocks": [
+            "2327"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "name": "電源／電力管理",
+      "description": "AI 資料中心高瓦數 PSU、BBU、UPS、電源管理、電力基礎設施。",
+      "core_stocks": [
+        "2308"
+      ],
+      "heat_score": 62,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：電源／電力管理 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：電源／電力管理 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "電源／電力管理 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "電源／電力管理"
+          ],
+          "stocks": [
+            "2308"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "記憶體",
+      "description": "DRAM、NAND、HBM、SSD、模組、報價與缺貨循環。",
+      "core_stocks": [],
+      "heat_score": 60,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：記憶體 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：記憶體 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "記憶體 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "記憶體"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "金融",
+      "description": "金控、銀行、保險、殖利率、資金防守與指數穩盤。",
+      "core_stocks": [],
+      "heat_score": 40,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：金融 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：金融 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "金融 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "金融"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "biotech",
+      "name": "生技",
+      "description": "新藥、醫材、授權、臨床、藥證與資金輪動。",
+      "core_stocks": [],
+      "heat_score": 38,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：生技 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：生技 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "生技 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "生技"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    }
+  ],
+  "stock_impacts": [
+    {
+      "code": "2308",
+      "name": "台達電",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "電源／電力管理"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "被動元件"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3017",
+      "name": "奇鋐",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "散熱"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3044",
+      "name": "健鼎",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "PCB／CCL"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3324",
+      "name": "雙鴻",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "散熱"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "7769",
+      "name": "鴻勁",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2360",
+      "name": "致茂",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "PCB／CCL"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "5347",
+      "name": "世界",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    }
+  ],
+  "fetch_errors": [],
+  "disclaimer": "僅供參考，不構成投資建議。"
+};
+let activeTopic = "all";
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+function settings(){return REPORT.settings || {}}
+function holdings(){return settings().my_holdings || {}}
+function watchlist(){return settings().watchlist || {}}
+function stockName(code){return holdings()[code] || watchlist()[code] || ""}
+function pill(code){
+  const cls = holdings()[code] ? "holding" : (watchlist()[code] ? "watch" : "");
+  return `<span class="pill ${cls}">${esc(code)} ${esc(stockName(code))}</span>`;
+}
+function gradePill(g){
+  let cls = g && g.indexOf("A")===0 ? "gradeA" : (g && g.indexOf("B")===0 ? "gradeB" : "gradeC");
+  return `<span class="pill ${cls}">${esc(g||"C_參考")}</span>`;
+}
+function heatBar(v){ return `<div class="heatbar"><div style="width:${Math.max(0,Math.min(100,v||0))}%"></div></div>`; }
+function q(){return document.getElementById("q").value.trim().toLowerCase()}
+function itemText(it){return [it.title,it.description,it.event,it.view,it.source,it.topic_name,(it.stocks||[]).join(" ")].join(" ").toLowerCase()}
+function matchQ(it){const query=q(); return !query || itemText(it).includes(query)}
+function topicMatch(t){const query=q(); return !query || [t.name,t.description,t.topic_view,(t.core_stocks||[]).join(" ")].join(" ").toLowerCase().includes(query) || (t.items||[]).some(matchQ)}
+function renderSidebar(){
+  document.getElementById("holdings").innerHTML = Object.keys(holdings()).map(pill).join("");
+  document.getElementById("watchlist").innerHTML = Object.keys(watchlist()).map(pill).join("");
+  const topics=[{id:"all",name:"全部題材"},{id:"focus",name:"焦點大事"},{id:"stocks",name:"持股影響表"},...(REPORT.topics||[]).filter(t=>t.id!=="focus")];
+  document.getElementById("topicNav").innerHTML = topics.map(t=>`<button class="topicbtn ${activeTopic===t.id?'active':''}" onclick="activeTopic='${esc(t.id)}';render()">${esc(t.name)}</button>`).join("");
+}
+function renderOverview(){
+  const b = REPORT.market_bias || {};
+  let cls = b.label && b.label.indexOf("偏多")>=0 ? "pos" : (b.label && b.label.indexOf("偏空")>=0 ? "neg" : "neu");
+  const articleCount = (REPORT.topics||[]).reduce((sum,t)=>sum+(t.items||[]).length,0);
+  document.getElementById("generatedAt").textContent = `分析日期與時間：${REPORT.generated_at || ""}`;
+  document.getElementById("overview").innerHTML = `
+    <div class="hero">
+      <div class="summary">
+        <div class="small">今日焦點結論</div>
+        <div class="bias ${cls}">${esc(b.label || "尚無結論")}</div>
+        <div>${esc(b.reason || "")}</div>
+      </div>
+      <div class="warn">
+        <strong>市場數據提醒</strong><br>
+        ${esc((REPORT.market_note||{}).event||"")}<br>
+        ${esc((REPORT.market_note||{}).view||"")}
+      </div>
+    </div>
+    <div class="kpi">
+      <div class="kpicard"><span class="small">平均題材熱度</span><strong>${esc(b.average_topic_heat ?? "-")}</strong></div>
+      <div class="kpicard"><span class="small">正向訊號</span><strong>${esc(b.positive_signals ?? "-")}</strong></div>
+      <div class="kpicard"><span class="small">負向訊號</span><strong>${esc(b.negative_signals ?? "-")}</strong></div>
+      <div class="kpicard"><span class="small">新聞筆數</span><strong>${articleCount}</strong></div>
+    </div>
+  `;
+}
+function renderStrategy(){
+  const s = REPORT.strategy || {};
+  document.getElementById("strategy").innerHTML = `
+    <div class="sectiontitle"><h2>盤前操作提醒</h2><span class="small">不是買賣建議，是觀察順序</span></div>
+    <div class="summary"><strong>${esc(s.action || "")}</strong><br>${esc(s.note || "")}</div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="kpicard">
+        <strong>優先觀察題材</strong>
+        <ul>${(s.top_topics||[]).map(t=>`<li>${esc(t.name)}：${esc(t.heat_score)} 分<br><span class="small">${esc(t.view)}</span></li>`).join("") || "<li>尚無</li>"}</ul>
+      </div>
+      <div class="kpicard">
+        <strong>今日風險題材</strong>
+        <ul>${(s.risk_topics||[]).map(t=>`<li>${esc(t.name)}：${esc((t.risk_flags||[]).join("、")||"無明顯風險詞")}</li>`).join("") || "<li>尚無</li>"}</ul>
+      </div>
+    </div>
+  `;
+}
+function renderStockImpact(){
+  const rows=(REPORT.stock_impacts||[]).filter(s=>{
+    const query=q();
+    return !query || [s.code,s.name,s.type,s.impact,(s.related_topics||[]).join(" "),s.watch_point].join(" ").toLowerCase().includes(query)
+  });
+  document.getElementById("stockImpact").innerHTML = `
+    <div class="sectiontitle"><h2>你的持股／關注股影響表</h2><span class="small">依題材熱度與新聞關聯自動估算</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>股票</th><th>類型</th><th>影響</th><th>分數</th><th>關聯題材</th><th>觀察重點</th><th>風險</th></tr></thead>
+      <tbody>${rows.map(s=>`
+        <tr>
+          <td>${pill(s.code)}</td>
+          <td>${esc(s.type)}</td>
+          <td><strong>${esc(s.impact)}</strong></td>
+          <td>${heatBar(s.impact_score)}<span class="small">${esc(s.impact_score)}</span></td>
+          <td>${esc((s.related_topics||[]).join("、") || "-")}</td>
+          <td>${esc(s.watch_point || "")}</td>
+          <td>${esc((s.risk_flags||[]).join("、") || "-")}</td>
+        </tr>`).join("")}</tbody>
+    </table></div>
+  `;
+}
+function renderTopicHeat(){
+  let topics=(REPORT.topics||[]).filter(t=>t.id!=="focus").filter(topicMatch).sort((a,b)=>(b.heat_score||0)-(a.heat_score||0));
+  document.getElementById("topicHeat").innerHTML = `
+    <div class="sectiontitle"><h2>題材熱度排行</h2><span class="small">0～100 分，依新聞量、關鍵字、正負訊號估算</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>題材</th><th>熱度</th><th>正／負</th><th>核心關聯股</th><th>觀點</th><th>風險詞</th></tr></thead>
+      <tbody>${topics.map(t=>`
+        <tr>
+          <td><strong>${esc(t.name)}</strong><br><span class="small">${esc(t.description||"")}</span></td>
+          <td>${heatBar(t.heat_score)}<span class="small">${esc(t.heat_score)}</span></td>
+          <td>${esc(t.positive_count||0)}／${esc(t.negative_count||0)}</td>
+          <td><div class="pillrow">${(t.core_stocks||[]).map(pill).join("") || "-"}</div></td>
+          <td>${esc(t.topic_view||"")}</td>
+          <td>${esc((t.risk_flags||[]).join("、") || "-")}</td>
+        </tr>`).join("")}</tbody>
+    </table></div>
+  `;
+}
+function renderItem(it, focus=false){
+  return `<article class="newsitem ${focus?'focus':''}">
+    <h3>${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title||it.event)}</a>` : esc(it.title||it.event)}</h3>
+    <div class="meta">
+      <span>${esc(it.source||"")}</span>
+      <span>${esc((it.published||"").replace("T"," ").slice(0,16))}</span>
+      ${gradePill(it.source_grade)}
+      ${(it.matched_topics||[]).map(x=>`<span class="pill">${esc(x)}</span>`).join("")}
+    </div>
+    <p><strong>事件：</strong>${esc(it.event||it.title||"")}</p>
+    <p><strong>觀點：</strong>${esc(it.view||"")}</p>
+    <div class="pillrow">${(it.stocks||[]).map(pill).join("")}</div>
+  </article>`;
+}
+function renderFocus(){
+  const items=(REPORT.focus||[]).filter(matchQ);
+  document.getElementById("focus").innerHTML = `
+    <div class="sectiontitle"><h2>焦點大事</h2><span class="small">影響整體盤勢的大事件</span></div>
+    ${items.length ? items.map(it=>renderItem(it,true)).join("") : "<p class='small'>沒有符合搜尋條件的焦點新聞。</p>"}
+  `;
+}
+function renderTopicDetail(){
+  if(activeTopic==="stocks"){
+    document.getElementById("topicDetail").innerHTML = `<p class="small">目前顯示持股影響表。請點左側題材查看分類新聞。</p>`;
+    return;
+  }
+  if(activeTopic==="focus"){
+    document.getElementById("topicDetail").innerHTML = `<p class="small">目前顯示焦點大事。請點左側題材查看分類新聞。</p>`;
+    return;
+  }
+  let topics=(REPORT.topics||[]).filter(t=>t.id!=="focus");
+  if(activeTopic!=="all") topics=topics.filter(t=>t.id===activeTopic);
+  topics=topics.filter(topicMatch);
+  document.getElementById("topicDetail").innerHTML = topics.map(t=>{
+    const items=(t.items||[]).filter(matchQ);
+    return `<section style="margin-bottom:18px">
+      <div class="sectiontitle">
+        <div><h2>${esc(t.name)}</h2><div class="small">${esc(t.description||"")}</div></div>
+        <span class="pill">${items.length} 則｜熱度 ${esc(t.heat_score)}</span>
+      </div>
+      ${items.length ? items.map(it=>renderItem(it)).join("") : "<p class='small'>沒有符合搜尋條件的新聞。</p>"}
+    </section>`;
+  }).join("") || "<p class='small'>沒有題材資料。</p>";
+}
+function toggleRaw(){
+  const box=document.getElementById("rawBox");
+  box.classList.toggle("hidden");
+  document.getElementById("raw").textContent=JSON.stringify(REPORT,null,2);
+}
+function render(){
+  renderSidebar();
+  renderOverview();
+  renderStrategy();
+  renderStockImpact();
+  renderTopicHeat();
+  renderFocus();
+  renderTopicDetail();
+}
+render();
+</script>
+</body>
+</html>

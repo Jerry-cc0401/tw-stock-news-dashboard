@@ -1,0 +1,529 @@
+{
+  "generated_at": "2026-05-16 08:20",
+  "title": "台股題材新聞儀表板 v3（範例）",
+  "settings": {
+    "timezone": "Asia/Taipei",
+    "days": 2,
+    "max_items_per_topic": 12,
+    "google_news_locale": {
+      "hl": "zh-TW",
+      "gl": "TW",
+      "ceid": "TW:zh-Hant"
+    },
+    "my_holdings": {
+      "2308": "台達電",
+      "2327": "國巨",
+      "2330": "台積電",
+      "3017": "奇鋐",
+      "3044": "健鼎",
+      "3324": "雙鴻"
+    },
+    "watchlist": {
+      "7769": "鴻勁",
+      "2360": "致茂",
+      "4958": "臻鼎-KY",
+      "5347": "世界"
+    },
+    "source_grade_rules": {
+      "A_官方": [
+        "臺灣證券交易所",
+        "證交所",
+        "期交所",
+        "櫃買中心",
+        "中央銀行",
+        "公開資訊觀測站",
+        "台灣期貨交易所",
+        "TSMC",
+        "台積電"
+      ],
+      "B_主流財經": [
+        "中央社",
+        "經濟日報",
+        "工商時報",
+        "鉅亨",
+        "MoneyDJ",
+        "財訊快報",
+        "Reuters",
+        "Bloomberg",
+        "Anue",
+        "Yahoo奇摩股市"
+      ],
+      "C_參考": [
+        "其他"
+      ]
+    }
+  },
+  "market_bias": {
+    "label": "震盪輪動",
+    "reason": "這是範例資料。請執行 python fetch_news.py 後更新成最新新聞。",
+    "positive_signals": 0,
+    "negative_signals": 0,
+    "average_topic_heat": 55
+  },
+  "strategy": {
+    "action": "先完成自動更新設定",
+    "note": "執行 python fetch_news.py 後，這裡會顯示今日盤前操作提醒。",
+    "top_topics": [
+      {
+        "name": "散熱",
+        "heat_score": 70,
+        "view": "範例：散熱題材放在這裡。"
+      },
+      {
+        "name": "PCB／CCL",
+        "heat_score": 68,
+        "view": "範例：PCB 題材放在這裡。"
+      },
+      {
+        "name": "電源／電力管理",
+        "heat_score": 62,
+        "view": "範例：台達電相關題材放在這裡。"
+      }
+    ],
+    "risk_topics": [
+      {
+        "name": "高檔 AI 股",
+        "risk_flags": [
+          "開高走低",
+          "爆量不漲"
+        ]
+      }
+    ]
+  },
+  "market_note": {
+    "event": "新聞由 Google News RSS 依題材自動抓取並初步分類。",
+    "view": "台指期夜盤、8:30 試撮、台幣匯率、即時股價與成交量請以期交所、央行、證交所與券商 App 交叉確認。"
+  },
+  "focus": [
+    {
+      "title": "範例：今日焦點大事會顯示在這裡",
+      "link": "",
+      "source": "sample",
+      "published": "2026-05-16T08:20:00+08:00",
+      "event": "執行 fetch_news.py 後會自動抓最新焦點新聞。",
+      "view": "焦點大事會優先整理美股、費半、NVIDIA、台指期、台幣、外資與法說消息。",
+      "source_grade": "C_參考",
+      "matched_topics": [
+        "焦點大事"
+      ],
+      "stocks": [
+        "2330",
+        "2308"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "ai_semiconductor",
+      "name": "AI 半導體／先進封裝",
+      "description": "台積電、CoWoS、SoIC、ASIC、HBM、先進製程、測試設備與成熟製程補漲。",
+      "core_stocks": [
+        "2330",
+        "7769",
+        "2360",
+        "5347"
+      ],
+      "heat_score": 65,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：AI 半導體／先進封裝 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：AI 半導體／先進封裝 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "AI 半導體／先進封裝 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ],
+          "stocks": [
+            "2330",
+            "7769",
+            "2360",
+            "5347"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "thermal",
+      "name": "散熱",
+      "description": "液冷、均熱板、熱管、風扇、AI 伺服器散熱模組。",
+      "core_stocks": [
+        "3017",
+        "3324"
+      ],
+      "heat_score": 70,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：散熱 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：散熱 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "散熱 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "散熱"
+          ],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "optical",
+      "name": "光通訊／CPO",
+      "description": "CPO、矽光子、800G、1.6T、光模組、光收發、InP、雷射。",
+      "core_stocks": [],
+      "heat_score": 57,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：光通訊／CPO 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：光通訊／CPO 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "光通訊／CPO 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "光通訊／CPO"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "pcb_ccl",
+      "name": "PCB／CCL",
+      "description": "AI 伺服器高階 PCB、CCL、銅箔基板、高速材料、HDI、伺服器板。",
+      "core_stocks": [
+        "3044",
+        "4958"
+      ],
+      "heat_score": 68,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：PCB／CCL 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：PCB／CCL 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "PCB／CCL 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "PCB／CCL"
+          ],
+          "stocks": [
+            "3044",
+            "4958"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "passive",
+      "name": "被動元件",
+      "description": "MLCC、電阻、電感、鉭電容、AI 伺服器與車用電子需求。",
+      "core_stocks": [
+        "2327"
+      ],
+      "heat_score": 52,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：被動元件 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：被動元件 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "被動元件 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "被動元件"
+          ],
+          "stocks": [
+            "2327"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "name": "電源／電力管理",
+      "description": "AI 資料中心高瓦數 PSU、BBU、UPS、電源管理、電力基礎設施。",
+      "core_stocks": [
+        "2308"
+      ],
+      "heat_score": 62,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：電源／電力管理 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：電源／電力管理 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "電源／電力管理 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "電源／電力管理"
+          ],
+          "stocks": [
+            "2308"
+          ],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "記憶體",
+      "description": "DRAM、NAND、HBM、SSD、模組、報價與缺貨循環。",
+      "core_stocks": [],
+      "heat_score": 60,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：記憶體 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：記憶體 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "記憶體 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "記憶體"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "金融",
+      "description": "金控、銀行、保險、殖利率、資金防守與指數穩盤。",
+      "core_stocks": [],
+      "heat_score": 40,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：金融 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：金融 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "金融 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "金融"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "id": "biotech",
+      "name": "生技",
+      "description": "新藥、醫材、授權、臨床、藥證與資金輪動。",
+      "core_stocks": [],
+      "heat_score": 38,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "topic_view": "範例：生技 的題材觀點會顯示在這裡。",
+      "items": [
+        {
+          "title": "範例：生技 題材新聞",
+          "link": "",
+          "source": "sample",
+          "published": "2026-05-16T08:20:00+08:00",
+          "event": "生技 相關新聞會自動集中在這個區塊。",
+          "view": "執行 fetch_news.py 後，這裡會顯示最新新聞、來源可信度、事件與觀點。",
+          "source_grade": "C_參考",
+          "matched_topics": [
+            "生技"
+          ],
+          "stocks": [],
+          "risk_flags": []
+        }
+      ]
+    }
+  ],
+  "stock_impacts": [
+    {
+      "code": "2308",
+      "name": "台達電",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "電源／電力管理"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "被動元件"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3017",
+      "name": "奇鋐",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "散熱"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3044",
+      "name": "健鼎",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "PCB／CCL"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "3324",
+      "name": "雙鴻",
+      "type": "持有股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "焦點大事",
+        "散熱"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "7769",
+      "name": "鴻勁",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "2360",
+      "name": "致茂",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "PCB／CCL"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    },
+    {
+      "code": "5347",
+      "name": "世界",
+      "type": "關注股",
+      "impact": "範例",
+      "impact_score": 50,
+      "related_topics": [
+        "AI 半導體／先進封裝"
+      ],
+      "risk_flags": [],
+      "watch_point": "執行 fetch_news.py 後，這裡會依今日新聞更新觀察重點。",
+      "articles": []
+    }
+  ],
+  "fetch_errors": [],
+  "disclaimer": "僅供參考，不構成投資建議。"
+}
