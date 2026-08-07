@@ -113,7 +113,7 @@ pre{white-space:pre-wrap;background:#101828;color:#fff;border-radius:14px;paddin
 
 <script>
 const REPORT = {
-  "generated_at": "2026-08-06 11:19",
+  "generated_at": "2026-08-07 11:08",
   "title": "台股題材新聞儀表板 v3",
   "settings": {
     "timezone": "Asia/Taipei",
@@ -168,33 +168,40 @@ const REPORT = {
     }
   },
   "market_bias": {
-    "label": "震盪輪動",
-    "reason": "正負訊號接近，盤面可能以族群輪動為主，不適合無差別追高。",
-    "positive_signals": 10,
-    "negative_signals": 1,
-    "average_topic_heat": 54
+    "label": "偏多，但需防高檔震盪",
+    "reason": "AI 與科技題材新聞偏正向，題材熱度也維持高檔。",
+    "positive_signals": 14,
+    "negative_signals": 4,
+    "average_topic_heat": 65
   },
   "strategy": {
-    "action": "震盪輪動，挑族群不挑全部",
-    "note": "優先看題材熱度最高且有持股關聯的族群，避免追短線爆量不漲個股。",
+    "action": "偏多觀察，但不追開盤第一根",
+    "note": "先等 9:30 後確認台積電、台達電、散熱與 PCB 是否有承接，再決定是否加碼。",
     "top_topics": [
+      {
+        "name": "散熱",
+        "heat_score": 100,
+        "view": "散熱 今日新聞熱度高且偏正向，可列為盤前第一層觀察；但若開高急拉，要避免追在情緒高點。"
+      },
       {
         "name": "記憶體",
         "heat_score": 100,
         "view": "記憶體 今日新聞熱度高且偏正向，可列為盤前第一層觀察；但若開高急拉，要避免追在情緒高點。"
       },
       {
-        "name": "散熱",
-        "heat_score": 79,
-        "view": "散熱 題材熱度偏高，適合觀察是否有族群同步與量價延續，不宜只看單一個股急拉。"
-      },
-      {
         "name": "光通訊／CPO",
-        "heat_score": 73,
+        "heat_score": 85,
         "view": "光通訊／CPO 題材熱度偏高，適合觀察是否有族群同步與量價延續，不宜只看單一個股急拉。"
       }
     ],
-    "risk_topics": []
+    "risk_topics": [
+      {
+        "name": "光通訊／CPO",
+        "risk_flags": [
+          "獲利了結"
+        ]
+      }
+    ]
   },
   "market_note": {
     "event": "新聞由 Google News RSS 依題材自動抓取並初步分類。",
@@ -202,10 +209,30 @@ const REPORT = {
   },
   "focus": [
     {
+      "title": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 - 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUE5rMkViMm9Yai12d2xrZDBWMzN6eThIQm8yZk5HVW14YWZIaFhUaVNnUFNZZjFhRUZLM0NtQ3ZxeC1vdjdoUEY4bjZiSlU4YnVtSzBrRWIzb1pma2d2X2tISG13dGpqTWlkOXpPNE10NDh1UnowWjF5MmMyWmc4MdIBX0FVX3lxTE0tQXF3ZjdDRE9Nb0w2bm93MmFzVVlYekc3OG84TDlNbjd0WjFqQWwxRWo5MnF0ZFpNNXFoNndZNzVQZmx5dzI4cE1Uc284ZUVSMEZHTE1xUm9lbDZTWDZz?oc=5",
+      "source": "經濟日報",
+      "published": "2026-08-06T13:19:13+08:00",
+      "description": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 經濟日報",
+      "event": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 - 經濟日報",
+      "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
+      "topic_id": "memory",
+      "topic_name": "記憶體",
+      "source_grade": "B_主流財經",
+      "relevance_score": 10,
+      "positive_count": 1,
+      "negative_count": 0,
+      "risk_flags": [],
+      "stocks": [],
+      "matched_topics": [
+        "記憶體"
+      ]
+    },
+    {
       "title": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 - 經濟日報",
       "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9fZC02bWhMXzhZUENndGRYSElyNWtEeTJSeEd1TVI3a0pHU2VhQnpIRzYxQVZ2LXFSV21ZZER3UFBjNS1RVUtfUVAxb3JXeTUzNFRtNExtUGswd9IBX0FVX3lxTE52VjNPN0FEbnF2cFdYUFZNUC1NNVhNS1dSYm5KZ25FaVBHbVZSa2FGU0R4UUV3ei16OXZmMlJNUFZsVS1Hb3hWM1dzNTgyaDEzdEp3SFltSkhYZlplVWtj?oc=5",
       "source": "經濟日報",
-      "published": "2026-08-04T17:00:00+08:00",
+      "published": "2026-08-05T17:00:00+08:00",
       "description": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 經濟日報",
       "event": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 - 經濟日報",
       "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
@@ -222,78 +249,41 @@ const REPORT = {
       ]
     },
     {
-      "title": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1abWp2RUkzY2t4X05tY0p6c2V4djN4RG9LMENaUm9NakhOUFBmTWs2UWVkamxpTFNUcmc4R2NLVjB3ZVcwaWV5XzNnSDF4UDROZi1MQnpIdTFtQdIBX0FVX3lxTFB5MW1MQnV3YVhpU0JOcWlnWjFGbm53M09IdnBwdEpTUkhJOE1SX29mMHZxLXc4VWJoNlA0Ny1zS3dJdTJqWnRkeEF0TmFxdWZEYkxhN1AyQm1kVHVfSUNN?oc=5",
-      "source": "經濟日報",
-      "published": "2026-08-05T18:00:00+08:00",
-      "description": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 經濟日報",
-      "event": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 - 經濟日報",
-      "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-      "topic_id": "memory",
-      "topic_name": "記憶體",
+      "title": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1pRVptU3RGY3oxQjJzY1dkM3NPQjNweHRYSkU4UW5EWTlFS0dGMWFyOGZJM3YwYkp3MlV4aUpLYXBXeThoSlNkdQ?oc=5",
+      "source": "鉅亨號",
+      "published": "2026-08-06T13:20:48+08:00",
+      "description": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 鉅亨號",
+      "event": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+      "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+      "topic_id": "thermal",
+      "topic_name": "散熱",
       "source_grade": "B_主流財經",
-      "relevance_score": 7,
-      "positive_count": 1,
-      "negative_count": 0,
-      "risk_flags": [],
-      "stocks": [],
-      "matched_topics": [
-        "記憶體"
-      ]
-    },
-    {
-      "title": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5TYjNVN2dlRDFRYUdoZ2RFRFZuTC1QLVlfVkdrX1Z1amtGMHJpUjZiWlE2T0tnRlhGZ2JiUU1WT015NkZRcHp1WHdUNEFqQm5mbEQ3dGctdF9IOFZMMnh2NGFDT1psSVR2MWM3YW9CdGhCQzI1akFSUy05eHRyUdIBX0FVX3lxTE5Fd3UxTEg2M01lUkFubC1hQWRiYURLSlo3WnViUFF2YXI0d0tTQ3FCSkFIVVJKbm1vc3BQbzl1VGQ1NWhJemJGOUFkQzZoYUZhTlVPM2dfMFVDTC1RSG9B?oc=5",
-      "source": "經濟日報",
-      "published": "2026-08-05T08:30:30+08:00",
-      "description": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 經濟日報",
-      "event": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 - 經濟日報",
-      "view": "先判斷它對台指期、台幣、台積電與外資風險偏好的影響，再看開盤後是否有承接。",
-      "topic_id": "focus",
-      "topic_name": "焦點大事",
-      "source_grade": "B_主流財經",
-      "relevance_score": 7,
-      "positive_count": 1,
-      "negative_count": 0,
-      "risk_flags": [],
-      "stocks": [],
-      "matched_topics": [
-        "焦點大事"
-      ]
-    },
-    {
-      "title": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5icHVuNnpSVk5TTjRGUXNEaXhTTTZmMHNSSGZXMnhzdFo5N0E0cGVUdTVsY0xvdFlETFh3cjcwdFAyT0hmX2ZVX0ZfV3lQdjB5WDVvMy1oNGwxQdIBX0FVX3lxTE01WTFxRWR0ZmFpQ0xrdVZGdF9FU0J6cmNoRTltUnotXzI2N05qaXF4VnUxaks0MVYydkFuY01MX3NzcXpSaXppTEdtd2duN1BuWGkwUEVxSlZhak9ULTYw?oc=5",
-      "source": "經濟日報",
-      "published": "2026-08-04T17:00:00+08:00",
-      "description": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 經濟日報",
-      "event": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 - 經濟日報",
-      "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-      "topic_id": "memory",
-      "topic_name": "記憶體",
-      "source_grade": "B_主流財經",
-      "relevance_score": 6,
+      "relevance_score": 8,
       "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
-      "stocks": [],
+      "stocks": [
+        "3017",
+        "3324"
+      ],
       "matched_topics": [
-        "記憶體"
+        "散熱"
       ]
     },
     {
-      "title": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GbEcwSXllUnMyWWVhNTBDcm01ZThyQ2RtM0phVXppMG5HTzlCdC1KSzBieUp5eHpRY09YdXZJdDF5bEVPLWxGWTRieVNKcUtqbndxVmVlcTJPdW5VRWZPYU9xdTRHTHRlU2pJYXZqLVdLcmRNSGMySnJYTzMxZlHSAV9BVV95cUxPVVNzQ3F6ZFdfMTFWVzd5LWVzUXVNS29SdTB6cDFUdC1qMFppTVhtbWhFQkY0VHZKRzFTRmIxNDNDdS1zZ2N0QklsQjhFMXZySjZiNGdBd0JERm1Ybk9LWQ?oc=5",
+      "title": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0tQ0g4MGxubm1tWllwbGhVUV81MGp6Y3ZVbjF4RnlhUXFQTkRTZTQ3alQ3V1gtSDJ5SGNFMXk5UlFpQjJqb18yV0lYM1E1LVRnWHFXOFhRSlQzRUpDUGc3YW5LODhQdmRjYWk3aTZDTVNJd2E0cG13SGo0ZlZVTnfSAV9BVV95cUxPWjlaamMtSk93MFdfVVBqSWJtWFliRUNKWkdwVFIzQVZVMGRKRkR3TUU3SGtzNVRBSTlCT3RTZmkyWFRuYjEyTDluM054ZGp1LWlTN0EwN25CTTFSc1M4MA?oc=5",
       "source": "經濟日報",
-      "published": "2026-08-04T17:00:00+08:00",
-      "description": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ 經濟日報",
-      "event": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
+      "published": "2026-08-05T17:00:00+08:00",
+      "description": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ 經濟日報",
+      "event": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
       "view": "被動元件要看 MLCC、電阻、電感報價與 AI／車用需求是否同步改善。 關聯標的：2327 國巨。",
       "topic_id": "passive",
       "topic_name": "被動元件",
       "source_grade": "B_主流財經",
-      "relevance_score": 5,
-      "positive_count": 1,
+      "relevance_score": 4,
+      "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
       "stocks": [
@@ -304,23 +294,26 @@ const REPORT = {
       ]
     },
     {
-      "title": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQR3c2MUlwMWhkN0ZkeWFhN25ERmVUMzJGcGQ3VkROLXEyR1dNTzM0Z3o3djNtTFlmRlptMno2eHZiYzJYb2N1VVFveTFaUUpzU1ltNklhRzEyMHNDM3NndTM1VU8tREpPLU56OWlBV0J4OURqWDBTek5MeVJFQ0c0edIBX0FVX3lxTE5tcng0MU1lVUtTd0lVaHdFaGsxUVZvd2pJUUV6QWg2OExod2pfUklhY3RzaWhGYlM3MWRLWVBlU1c1Y3M3VnZIVzkya3R5OHFsSEJ6TUJoUmVVa1VWN1R3?oc=5",
+      "title": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aUXgxc1Z6Z1RNNnE2RjZ6bDllSFNmUV81Z2FRUHYtSkppd1VUQVN1X0gyVkVickxyYnNkZ2V5VHB0dGRZdGZaRFlId0l3dEtVZlR3X2hrUVMtQdIBX0FVX3lxTE40U1ZIc0xPX0IzQzdkY2lUdE5CZkZpM1g2dERyQ245MGxWOW5rd2hVMm9uekpUR2J3V2JiazhjeUwyWExja2dzbVZoYVREUjVxVUV6amxlQ3NyeHhiSjJJ?oc=5",
       "source": "經濟日報",
-      "published": "2026-08-04T17:00:00+08:00",
-      "description": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 經濟日報",
-      "event": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 - 經濟日報",
-      "view": "金融通常是防守與撐盤角色，電子股震盪時才更容易被資金短線關注。",
-      "topic_id": "finance",
-      "topic_name": "金融",
+      "published": "2026-08-06T18:00:00+08:00",
+      "description": "奇鋐、雙鴻 瞄準長天期 經濟日報",
+      "event": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+      "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+      "topic_id": "thermal",
+      "topic_name": "散熱",
       "source_grade": "B_主流財經",
-      "relevance_score": 3,
+      "relevance_score": 2,
       "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
-      "stocks": [],
+      "stocks": [
+        "3017",
+        "3324"
+      ],
       "matched_topics": [
-        "金融"
+        "散熱"
       ]
     },
     {
@@ -347,58 +340,82 @@ const REPORT = {
       ]
     },
     {
-      "title": "金融類股補漲上揚 這些金控股漲幅最大 - 經濟日報",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5lSWZHc3ZuUWxyZXpsd0FKMDV0bHJxLWY1Mkh2YnNNZndEdjI0RVdac2VaZXdhV1J0MC15aXdEY0FidkczMmVBdEgtR1dYRWJsdmpMa1puQUVyZ9IBX0FVX3lxTE5QcWNDZlBmOHRlUzFfSF9GMkx1NXk5cFBtT2pRMlNTeHBZS3RDVEtNU0tQSng3NGlmUms1VGxSTXNlaXpqMnpqcUpxUnBSMTB6bTNCZ2ZMZzRvcURMak5V?oc=5",
+      "title": "散熱族群集體走強！雙鴻強攻1,060元漲停價 - 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBQdldoaUVnZHBaU29vZDNSNXBoczYyWFExR3NMS2VERXRWME00T0FsdmUySXo4YXlCZ2doM3pfOWxCbEYzTTZ2czdkZ1UwRy05VUM3V1E1dHZCUdIBX0FVX3lxTE1MUUU5V0x3RDJLemxfNmJmakd3emZNdDVqQllVemgxMjNGVThrN005R2tMNUR3Q2UtdHlCRjBuNW5tUXF6empVcWJWU1F1b3dtOE12TnZkR2pnUmZJQ2pB?oc=5",
       "source": "經濟日報",
-      "published": "2026-08-04T17:00:00+08:00",
-      "description": "金融類股補漲上揚 這些金控股漲幅最大 經濟日報",
-      "event": "金融類股補漲上揚 這些金控股漲幅最大 - 經濟日報",
-      "view": "金融通常是防守與撐盤角色，電子股震盪時才更容易被資金短線關注。",
-      "topic_id": "finance",
-      "topic_name": "金融",
+      "published": "2026-08-05T17:00:00+08:00",
+      "description": "散熱族群集體走強！雙鴻強攻1,060元漲停價 經濟日報",
+      "event": "散熱族群集體走強！雙鴻強攻1,060元漲停價 - 經濟日報",
+      "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3324 雙鴻。",
+      "topic_id": "thermal",
+      "topic_name": "散熱",
+      "source_grade": "B_主流財經",
+      "relevance_score": 2,
+      "positive_count": 0,
+      "negative_count": 0,
+      "risk_flags": [],
+      "stocks": [
+        "3324"
+      ],
+      "matched_topics": [
+        "散熱"
+      ]
+    },
+    {
+      "title": "鴻勁、緯穎 押寶120天 - 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1STEZoelNydU5UYzd5LUlXM3JMYk5zZXRFZ1NJSzFkMnFZRjRCajlYdGlFVmdUS0ZIbTJOSDdxRFlqMGJxendfMXJ6Z08xdkU4dU51YlpBbXVFd9IBX0FVX3lxTE01QVpHRENwbERRVG9OWHg4T2wwMDVtNTBXUUZxbGZEcngwam9Hdko0dmFhWWhDMFJORUllYWlWRHVKT2k1WldReTBKc3g4Q1c1ZFRNdFQyamY3RHZuR3pj?oc=5",
+      "source": "經濟日報",
+      "published": "2026-08-05T17:00:00+08:00",
+      "description": "鴻勁、緯穎 押寶120天 經濟日報",
+      "event": "鴻勁、緯穎 押寶120天 - 經濟日報",
+      "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：7769 鴻勁。",
+      "topic_id": "ai_semiconductor",
+      "topic_name": "AI 半導體／先進封裝",
       "source_grade": "B_主流財經",
       "relevance_score": 1,
       "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
-      "stocks": [],
+      "stocks": [
+        "7769"
+      ],
       "matched_topics": [
-        "金融"
+        "AI 半導體／先進封裝"
       ]
     },
     {
-      "title": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 - 今周刊",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUTdlM1UxRkwxVnNCQ1JPUmtBcEtkX3FhaFJZeVlKOHNTVmJyRVVvblJDRnJGbkl2aGNabk9IenczTmtwNTc2NUw1cDd3czN6aDRSZFVlQzgwbkZfSjI4RUpQaElLN193LS1ubmpoTTRjdVBUUkhkTFY0Y3RxNnQ4Uw?oc=5",
-      "source": "今周刊",
-      "published": "2026-08-04T17:58:00+08:00",
-      "description": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 今周刊",
-      "event": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 - 今周刊",
-      "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-      "topic_id": "memory",
-      "topic_name": "記憶體",
+      "title": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 - 蕃新聞",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9QQ0dtRkxiLUxqTlVWaDRNcDVEVmpsQi1ZVDF1UjhEV0lJOFlRdEJPN0NWWXNSczdTMWJfZm5pQ0ZaYkRzN1gwUzB6T0hVaVJ2a0E?oc=5",
+      "source": "蕃新聞",
+      "published": "2026-08-06T22:32:00+08:00",
+      "description": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 蕃新聞",
+      "event": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 - 蕃新聞",
+      "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
+      "topic_id": "optical",
+      "topic_name": "光通訊／CPO",
       "source_grade": "C_參考",
-      "relevance_score": 12,
-      "positive_count": 2,
+      "relevance_score": 18,
+      "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
       "stocks": [],
       "matched_topics": [
-        "記憶體"
+        "光通訊／CPO"
       ]
     },
     {
-      "title": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 - 非凡新聞台",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1NNFJyY0k5SWo1d1BJZlhPdTFUUDZMQ1Fma1lHQlBfMU4xckVPT3AxSjc1a1EwUzJ0Z3gwenphRGNVZ3RGVk5lRnRycnIzWjc0eWd2ZzlBaHhXamxiVi1F?oc=5",
-      "source": "非凡新聞台",
-      "published": "2026-08-05T01:25:15+08:00",
-      "description": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 非凡新聞台",
-      "event": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 - 非凡新聞台",
+      "title": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 - 今周刊",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONnJucEZ3NkZaMGwzeTBBMGt4aTZwbkNCWUxPTzRRMnhZbFlaNmFLT1lBeU1lc3FDLURKVjFJOFJwSUlfSm1TbVIydk85dGc1dWxSLWVDYnlFbmt2WkdweDNaN25HalBTbk5jbjlvQ00ybjM2UHVQZkFwYlEwX0ctcw?oc=5",
+      "source": "今周刊",
+      "published": "2026-08-06T11:45:00+08:00",
+      "description": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 今周刊",
+      "event": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 - 今周刊",
       "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
       "topic_id": "memory",
       "topic_name": "記憶體",
       "source_grade": "C_參考",
-      "relevance_score": 11,
-      "positive_count": 1,
+      "relevance_score": 13,
+      "positive_count": 2,
       "negative_count": 0,
       "risk_flags": [],
       "stocks": [],
@@ -419,25 +436,25 @@ const REPORT = {
         "3044",
         "3324"
       ],
-      "heat_score": 44,
-      "positive_count": 1,
+      "heat_score": 38,
+      "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
       "topic_view": "焦點大事 今日新聞熱度較低，除非個股有重大消息，否則先列為次要觀察。",
       "items": [
         {
-          "title": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5TYjNVN2dlRDFRYUdoZ2RFRFZuTC1QLVlfVkdrX1Z1amtGMHJpUjZiWlE2T0tnRlhGZ2JiUU1WT015NkZRcHp1WHdUNEFqQm5mbEQ3dGctdF9IOFZMMnh2NGFDT1psSVR2MWM3YW9CdGhCQzI1akFSUy05eHRyUdIBX0FVX3lxTE5Fd3UxTEg2M01lUkFubC1hQWRiYURLSlo3WnViUFF2YXI0d0tTQ3FCSkFIVVJKbm1vc3BQbzl1VGQ1NWhJemJGOUFkQzZoYUZhTlVPM2dfMFVDTC1RSG9B?oc=5",
-          "source": "經濟日報",
-          "published": "2026-08-05T08:30:30+08:00",
-          "description": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 經濟日報",
-          "event": "美股創高台指期夜盤漲逾千點 法人：台股拚回季線 - 經濟日報",
+          "title": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 - vocus",
+          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE16b3k0MUZOY0Y3Q255eDNGck9wcUJtQUFNV0JOVkpkTjJnVHR4cmVibW1uQWtsVkhxeXp2N25tcmZVdzNBZllMWDRkeUJPTldWNGRWV2hFOU94RW90cGfSAWNBVV95cUxPOWdwNlFRbEl0QWNwQnV3SWpYdEhQVTM0UWlIUXF3ZFJESlQxMFZLV2xONjlrNDB5cVdCNDNSMjk2eXZQSVNaR3gzblkxZkhwY0M2M0Q0a3RGbGY4UVFSbnFhMjA?oc=5",
+          "source": "vocus",
+          "published": "2026-08-05T11:10:51+08:00",
+          "description": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 vocus",
+          "event": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 - vocus",
           "view": "先判斷它對台指期、台幣、台積電與外資風險偏好的影響，再看開盤後是否有承接。",
           "topic_id": "focus",
           "topic_name": "焦點大事",
-          "source_grade": "B_主流財經",
-          "relevance_score": 7,
-          "positive_count": 1,
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [],
@@ -446,17 +463,17 @@ const REPORT = {
           ]
         },
         {
-          "title": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 - vocus.cc",
-          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE16b3k0MUZOY0Y3Q255eDNGck9wcUJtQUFNV0JOVkpkTjJnVHR4cmVibW1uQWtsVkhxeXp2N25tcmZVdzNBZllMWDRkeUJPTldWNGRWV2hFOU94RW90cGfSAWNBVV95cUxPOWdwNlFRbEl0QWNwQnV3SWpYdEhQVTM0UWlIUXF3ZFJESlQxMFZLV2xONjlrNDB5cVdCNDNSMjk2eXZQSVNaR3gzblkxZkhwY0M2M0Q0a3RGbGY4UVFSbnFhMjA?oc=5",
-          "source": "vocus.cc",
-          "published": "2026-08-05T11:10:51+08:00",
-          "description": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 vocus.cc",
-          "event": "📊 2026-08-05 台股盤前早報｜理柴知道:法說最速報! - 方格子 - vocus.cc",
+          "title": "【台股115/8/7(五)盤前分析】 - 台灣好新聞",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPazVKY1FFQlpyRDV2UThtVnhiTzlUVkNQNW1jdkktS2dnZ29QUDNJaXBjdVVOYXVJVnRiWkZOYVNiY3lMSGFRa25sdU9TdE41SGNFNFpOcjRJTjRZNS1CZDJrMVBSS1BKMGtzcTFhRjItWUNSS1VHWmhtTVQ0MUo3bFhVb0JULTBqMlpqV21LWWRwTW1qN2hmdGROdmpISFVvMGtRU0FROGtVTkxQUFMydl9kLTlPd24zNmFwZmFocFF5MXpfY3h3ZUNwdGVJZw?oc=5",
+          "source": "台灣好新聞",
+          "published": "2026-08-07T00:01:13+08:00",
+          "description": "【台股115/8/7(五)盤前分析】 台灣好新聞",
+          "event": "【台股115/8/7(五)盤前分析】 - 台灣好新聞",
           "view": "先判斷它對台指期、台幣、台積電與外資風險偏好的影響，再看開盤後是否有承接。",
           "topic_id": "focus",
           "topic_name": "焦點大事",
           "source_grade": "C_參考",
-          "relevance_score": 3,
+          "relevance_score": 2,
           "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
@@ -477,12 +494,76 @@ const REPORT = {
         "2360",
         "5347"
       ],
-      "heat_score": 36,
-      "positive_count": 1,
+      "heat_score": 70,
+      "positive_count": 2,
       "negative_count": 0,
       "risk_flags": [],
-      "topic_view": "AI 半導體／先進封裝 今日新聞熱度較低，除非個股有重大消息，否則先列為次要觀察。",
+      "topic_view": "AI 半導體／先進封裝 題材熱度偏高，適合觀察是否有族群同步與量價延續，不宜只看單一個股急拉。",
       "items": [
+        {
+          "title": "鴻勁、緯穎 押寶120天 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1STEZoelNydU5UYzd5LUlXM3JMYk5zZXRFZ1NJSzFkMnFZRjRCajlYdGlFVmdUS0ZIbTJOSDdxRFlqMGJxendfMXJ6Z08xdkU4dU51YlpBbXVFd9IBX0FVX3lxTE01QVpHRENwbERRVG9OWHg4T2wwMDVtNTBXUUZxbGZEcngwam9Hdko0dmFhWWhDMFJORUllYWlWRHVKT2k1WldReTBKc3g4Q1c1ZFRNdFQyamY3RHZuR3pj?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-05T17:00:00+08:00",
+          "description": "鴻勁、緯穎 押寶120天 經濟日報",
+          "event": "鴻勁、緯穎 押寶120天 - 經濟日報",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：7769 鴻勁。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "B_主流財經",
+          "relevance_score": 1,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "7769"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        },
+        {
+          "title": "AI晶片概念股有哪些？GPU、ASIC、HBM、先進封裝受惠股整理 - 數位時代",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBIT1RXeTd5T1oxNm8zYmxURGpaZUFSVzZBTjJJUXBlOE9vdHNpa0pnOG9iSzV1emVhRmhiX0U4cVZUOWl0RWxPSEswV3dPRHBoRFpnZFdYVnNjcm5XNEo3c1JXTQ?oc=5",
+          "source": "數位時代",
+          "published": "2026-08-06T18:18:00+08:00",
+          "description": "AI晶片概念股有哪些？GPU、ASIC、HBM、先進封裝受惠股整理 數位時代",
+          "event": "AI晶片概念股有哪些？GPU、ASIC、HBM、先進封裝受惠股整理 - 數位時代",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "C_參考",
+          "relevance_score": 9,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        },
+        {
+          "title": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 - 緯來新聞網",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPamhfNWZpRDBBVER1NHFTc3ZpUTVqVi0tZ1daZTYxV1lkbEx4NEk4NmJSdUF5UFVmNW1oX19Sc2RrbXZhMVllVnk1eUQtblRRMnYxX3dGOXJUaFpxTFB5TXB4UTlnWmZwNnd4RVZ2aERGTTFPYllBUU1XQ0NWQThZaEpHeklVUQ?oc=5",
+          "source": "緯來新聞網",
+          "published": "2026-08-06T17:54:00+08:00",
+          "description": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 緯來新聞網",
+          "event": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 - 緯來新聞網",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：2330 台積電。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "C_參考",
+          "relevance_score": 6,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "2330"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        },
         {
           "title": "AI先進封裝需求爆發 日月光投控資本支出突破百億美元 - 蕃新聞",
           "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5fS3dQN1VBN1pZNVVTQUtJTnA4VXpfaXpLcGVXdTY0ZmhYbXNibG9RR1otTl8tV21pTEh2YlJMN1hjR2VXc2owbmNPclhMY2dYQlE?oc=5",
@@ -502,6 +583,29 @@ const REPORT = {
           "matched_topics": [
             "AI 半導體／先進封裝"
           ]
+        },
+        {
+          "title": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "link": "https://news.google.com/rss/articles/CBMiiwVBVV95cUxQUkhDSGs1Vy1IbkFoanBxRWxYc1ZfczAzTmUwUXh1Y2dSTXhRcjRGRnNUek9WU2RoSzNxalNiVHdabUI2dU9OQzF6TXRYYmhhNm55U19VZUN2bE56ak13US1Wd21nS296WlRFQlhsWVBCb0NvVnQwLUlPNVMyZGYyVmNNTW9sMzU0OVVmQXY5czFkNERXVmpGMWtDVllBSFpVNWREUzR3b1FyWWI4eG81NFZBS0l6UmpIQ21qNFk4S25reFpzSGJnYUNLTG5KbGFtQkFzSExpSkZJWVoyWVBKeEUzZGQ1M3lYc1hUWURZNEJtV05mQUk2VDhURmhJa1R1SjloWFFEdUN4c0dBVlBrU0xpQmxEUXBsNGROdGhBLUU3cFlrQWcwbWhKSmVkYl9mU0taYnU5ZUJKdjJ5N1cxVUx6RmJmQk1UeEd4Y1ZzOUkwcFRZS3JjelhlTThPWFZLLWxTQnJ0Y01tYUd3dVN1ZnF1VzdLeFBpTVJySnBOZjVCTk9MZG1JZV9ISUhCbWt2TXd1UFJCUnNvZjNYTTQ0eDRZb0QyMGJEdUk4WFIyQ3ZRWWlnWHEtR2ZNR1hRcV9PR0Nna0R5aG5feVJfMldUZlEzWm5ZNGtqVDZ5WldlY1p2eDRDeFB2Q3JSc1hHX0pEa09CVEVROXhuZ1U5OTdzZldWWnV0QmI4STd6Y0tCeVlsTTdUc3AxTVNqMThBVGd6Umc1MlAzd0Z0RmpDZWtGX3hjdkl0WVBaZXpkWlpCRWVzLUx5cG9nOU1EWnY1cjhWOFJmd0VRUmJHbUliNWdha1lHelJUajNKbUh4SEhaMVd2WkdzVWRjTWpic0tiWE5JOFhfWG9OSTk4X3M?oc=5",
+          "source": "sinotrade.com.tw",
+          "published": "2026-08-05T19:00:51+08:00",
+          "description": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 sinotrade.com.tw",
+          "event": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：2308 台達電、2327 國巨。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "C_參考",
+          "relevance_score": 1,
+          "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "2308",
+            "2327"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
         }
       ]
     },
@@ -513,12 +617,58 @@ const REPORT = {
         "3017",
         "3324"
       ],
-      "heat_score": 79,
-      "positive_count": 1,
-      "negative_count": 0,
+      "heat_score": 100,
+      "positive_count": 5,
+      "negative_count": 1,
       "risk_flags": [],
-      "topic_view": "散熱 題材熱度偏高，適合觀察是否有族群同步與量價延續，不宜只看單一個股急拉。",
+      "topic_view": "散熱 今日新聞熱度高且偏正向，可列為盤前第一層觀察；但若開高急拉，要避免追在情緒高點。",
       "items": [
+        {
+          "title": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1pRVptU3RGY3oxQjJzY1dkM3NPQjNweHRYSkU4UW5EWTlFS0dGMWFyOGZJM3YwYkp3MlV4aUpLYXBXeThoSlNkdQ?oc=5",
+          "source": "鉅亨號",
+          "published": "2026-08-06T13:20:48+08:00",
+          "description": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 鉅亨號",
+          "event": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 8,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aUXgxc1Z6Z1RNNnE2RjZ6bDllSFNmUV81Z2FRUHYtSkppd1VUQVN1X0gyVkVickxyYnNkZ2V5VHB0dGRZdGZaRFlId0l3dEtVZlR3X2hrUVMtQdIBX0FVX3lxTE40U1ZIc0xPX0IzQzdkY2lUdE5CZkZpM1g2dERyQ245MGxWOW5rd2hVMm9uekpUR2J3V2JiazhjeUwyWExja2dzbVZoYVREUjVxVUV6amxlQ3NyeHhiSjJJ?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-06T18:00:00+08:00",
+          "description": "奇鋐、雙鴻 瞄準長天期 經濟日報",
+          "event": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 2,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
         {
           "title": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
           "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1tR1ZVSExJdW4tTm50dkpzaElhUWVvSVBVMjBaZlRsY0cxSHZPZFZVSDNydGdjTFp1N1FQeEsyaXRFQk1TbmVxSEdWZTBZVF92SWhCVFlkX1FaSFU5UlNB0gFfQVVfeXFMTW1HVlVITEl1bi1ObnR2SnNoSWFRZW9JUFUyMFpmVGxjRzFIdk9kVlVIM3J0Z2NMWnU3UVB4SzJpdEVCTVNuZXFIR1ZlMFlUX3ZJaEJUWWRfUVpIVTlSU0E?oc=5",
@@ -532,6 +682,97 @@ const REPORT = {
           "source_grade": "B_主流財經",
           "relevance_score": 2,
           "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "散熱族群集體走強！雙鴻強攻1,060元漲停價 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBQdldoaUVnZHBaU29vZDNSNXBoczYyWFExR3NMS2VERXRWME00T0FsdmUySXo4YXlCZ2doM3pfOWxCbEYzTTZ2czdkZ1UwRy05VUM3V1E1dHZCUdIBX0FVX3lxTE1MUUU5V0x3RDJLemxfNmJmakd3emZNdDVqQllVemgxMjNGVThrN005R2tMNUR3Q2UtdHlCRjBuNW5tUXF6empVcWJWU1F1b3dtOE12TnZkR2pnUmZJQ2pB?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-05T17:00:00+08:00",
+          "description": "散熱族群集體走強！雙鴻強攻1,060元漲停價 經濟日報",
+          "event": "散熱族群集體走強！雙鴻強攻1,060元漲停價 - 經濟日報",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 2,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "雙鴻7月營收創高點火！AI 水冷散熱走強 富世達亮燈、奇鋐逼近3000元 - UDN",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE02OEEwbVF6S0tWRVpqNFdraWhWaUh6X1lkd250LTlHUlpmd25yTUc5UFNxR2ZnLXdMaGRWRHBEUFI5VEhxMEZOaUFaME4zYUptQzFRb2Fn0gFWQVVfeXFMTTY4QTBtUXpLS1ZFWmo0V2tpaFZpSHpfWWR3bnQtOUdSWmZ3bnJNRzlQU3FHZmctd0xoZFZEcERQUjlUSHEwRk5pQVowTjNhSm1DMVFvYWc?oc=5",
+          "source": "UDN",
+          "published": "2026-08-06T12:26:03+08:00",
+          "description": "雙鴻7月營收創高點火！AI 水冷散熱走強 富世達亮燈、奇鋐逼近3000元 UDN",
+          "event": "雙鴻7月營收創高點火！AI 水冷散熱走強 富世達亮燈、奇鋐逼近3000元 - UDN",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 10,
+          "positive_count": 2,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "《價值型投資 最新產業研究報告》雙鴻 (3324-TW)、奇鋐 (3017-TW) AI伺服器功耗升高，液冷散熱進入放量期 - news.cnyes.com",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB5cTBjMVcyXzJSd211Y2lhSnA4c1NBTE9ZMkp5Y0ZmbzF5eHJBUzhqaHBreGdaNGFKb2hvSmxnQ0NTbS1YekZjQVY2RGRBcEU?oc=5",
+          "source": "news.cnyes.com",
+          "published": "2026-08-06T11:06:33+08:00",
+          "description": "《價值型投資 最新產業研究報告》雙鴻 (3324-TW)、奇鋐 (3017-TW) AI伺服器功耗升高，液冷散熱進入放量期 news.cnyes.com",
+          "event": "《價值型投資 最新產業研究報告》雙鴻 (3324-TW)、奇鋐 (3017-TW) AI伺服器功耗升高，液冷散熱進入放量期 - news.cnyes.com",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 8,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "散熱四雄評價大比拼 雙鴻PE僅27倍嚴重被低估，下半年強烈看好展開大反彈追趕奇鋐！ - 理財周刊",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB5eU5rTFFhQlc1bVJfM1NZdUNna3hRUWQ4MllnVWhkNlQ1QVJQdDBzQ0gxT2NBMkZJMHhQT2RVb0NFZG43QmZaaU5QQWRZSFZRUU5jMWgwaFdjWWZIVExBQ0RkV3JSd2J2ckwxVmJXYw?oc=5",
+          "source": "理財周刊",
+          "published": "2026-08-06T16:38:36+08:00",
+          "description": "散熱四雄評價大比拼 雙鴻PE僅27倍嚴重被低估，下半年強烈看好展開大反彈追趕奇鋐！ 理財周刊",
+          "event": "散熱四雄評價大比拼 雙鴻PE僅27倍嚴重被低估，下半年強烈看好展開大反彈追趕奇鋐！ - 理財周刊",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 7,
+          "positive_count": 1,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [
@@ -566,6 +807,73 @@ const REPORT = {
           ]
         },
         {
+          "title": "熱門股／散熱四雄齊揚！雙鴻7月營收創高、漲停站回千元富世達法說報喜也亮燈| 產經 - 非凡新聞台",
+          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5vRXoyVDFjeDVfR2t0RFNvc1I1RmlnV2J4amY4UjItMWZvZEZvOUJwSERMVjNuYXU3Qk83WUNncVd2UkZrUm1sMWt2aC1kUmFfWEFYX0M5V0tDYXl4aEdMRQ?oc=5",
+          "source": "非凡新聞台",
+          "published": "2026-08-06T09:44:03+08:00",
+          "description": "熱門股／散熱四雄齊揚！雙鴻7月營收創高、漲停站回千元富世達法說報喜也亮燈| 產經 非凡新聞台",
+          "event": "熱門股／散熱四雄齊揚！雙鴻7月營收創高、漲停站回千元富世達法說報喜也亮燈| 產經 - 非凡新聞台",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 5,
+          "positive_count": 3,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "雙鴻7月營收飆創高 奇鋐法說前夕搶食Google大單！Vera Rubin 全液冷浪潮雙雄大比拚 - 理財周刊",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5OYXFTMXNMR1drdDIxNGlhbEhFNzBMYks0R2xUcTM4UzZSbEpEc0RTUTVZRXRkZDJUV1dvZ3IxVFI4OGpiUjhoLTEzUmlYdkhMRFR6QVB2Y0JhelVPbjdpcElnVFNPQjJpaVloRWRraw?oc=5",
+          "source": "理財周刊",
+          "published": "2026-08-06T15:11:21+08:00",
+          "description": "雙鴻7月營收飆創高 奇鋐法說前夕搶食Google大單！Vera Rubin 全液冷浪潮雙雄大比拚 理財周刊",
+          "event": "雙鴻7月營收飆創高 奇鋐法說前夕搶食Google大單！Vera Rubin 全液冷浪潮雙雄大比拚 - 理財周刊",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 4,
+          "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "奇鋐連日強彈蓄勢創高 法人調升獲利預估及目標價 - UDN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ILTdvWVpUeTFzeWV4bUdKcHRpei1GUlZvMlhkbFZ4Nm4zTnJuMUgyb0EzdjJzR25ISTA4Q1NWclQ5ZTlKZWZmVmViM1lVQ0g10gFWQVVfeXFMUFJEY0pmeThDZFNtTWp5U3BYY1p4dHlVRnJ3UFhraWpZMU9rNUQxdUlfaElCdWdHdXNKeC15ZjlhM0FOV2ZvSmQ5YVdkeGRqYjFCZWl1Y2c?oc=5",
+          "source": "UDN",
+          "published": "2026-08-06T13:34:12+08:00",
+          "description": "奇鋐連日強彈蓄勢創高 法人調升獲利預估及目標價 UDN",
+          "event": "奇鋐連日強彈蓄勢創高 法人調升獲利預估及目標價 - UDN",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 2,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
           "title": "AI散熱革命來襲！功耗飆破極限，奇鋐、健策卡位高毛利散熱新戰場-交易玩家-台股 - 商周財富網",
           "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2UldwR1poQk1DaWpXb0VvOGZ2LU1aaDMxbVhQNUZnZjFUUTZhdEF2bkFMaUdtUUhPNXFBUEVtSHFxMjNQdkdlSkRmMVdPQTljSjNwR3B5YXpfSUxMRTNlV2FLNEFvRW13bTdYc3F6eEMxUmpKbWc?oc=5",
           "source": "商周財富網",
@@ -586,111 +894,6 @@ const REPORT = {
           "matched_topics": [
             "散熱"
           ]
-        },
-        {
-          "title": "【08/06 產業即時新聞】散熱模組族群盤中強勢表態，AI伺服器需求與先進散熱技術點燃上攻動能 - CMoney投資網誌",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNczlzdEZ1dlVaS3ptSEFrZWVzOVZZUlJEbGhrY1p4NkFxaFFFZUxjZnRtU3A1WjhEc3BrR1NGOGp0QUZmNXBmSWptcWdKQ01WbURtZXhycGdwMGVwdHdLQmFqRnBIaGJJSkR6dHRLY3hOLTZxNlgzUGtBOW0xWXFJTklzNmVEWl96Zlc3cnZn?oc=5",
-          "source": "CMoney投資網誌",
-          "published": "2026-08-06T09:31:57+08:00",
-          "description": "【08/06 產業即時新聞】散熱模組族群盤中強勢表態，AI伺服器需求與先進散熱技術點燃上攻動能 CMoney投資網誌",
-          "event": "【08/06 產業即時新聞】散熱模組族群盤中強勢表態，AI伺服器需求與先進散熱技術點燃上攻動能 - CMoney投資網誌",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 2,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "奇鋐、雙鴻 權證選逾三個月 - UDN",
-          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE54VEYzUWV3RnpWZWVZVzFESGwzZFF0NmxiTThtVGpGYlVQZzBxb19VeFMxODQyQTUtMlpPd2tVYzZNR1pLVUU3TXNBYzNlVlBu0gFWQVVfeXFMUFUtcUhheEt6WUJiRWNfQkJraE9iYlhNSlZHTlByTm5Ma2pGLWVSLVIxVS1EbWVtWlJpQUs0Y3BWZ2JUS3hrMk5xODVzUEdHc2ZhU2czQ2c?oc=5",
-          "source": "UDN",
-          "published": "2026-08-06T00:20:35+08:00",
-          "description": "奇鋐、雙鴻 權證選逾三個月 UDN",
-          "event": "奇鋐、雙鴻 權證選逾三個月 - UDN",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 2,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "3017",
-            "3324"
-          ],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "日系外資看好富世達AI伺服器商機 上調目標價至2,615元 - news.cnyes.com",
-          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0tMFpCVEhzRUhja2VkbkpIcXUzckdSRkJNMWxzMWJSQWtEQ1dBbXN3TWtfU1BRUHBqTFg3LUFoN3lYeTJJMGl4SjNwcGV6bGM?oc=5",
-          "source": "news.cnyes.com",
-          "published": "2026-08-05T14:30:06+08:00",
-          "description": "日系外資看好富世達AI伺服器商機 上調目標價至2,615元 news.cnyes.com",
-          "event": "日系外資看好富世達AI伺服器商機 上調目標價至2,615元 - news.cnyes.com",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 1,
-          "positive_count": 1,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 - FTNN 新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9BSC03a1F3Wks5N1R0ZHltLXJxQnVBR1c3U2Fsa3doQWNzbl9Tcy1WcS1RY1JhRnpuVWplYVVjVWxOUTN4WHRocVpEQQ?oc=5",
-          "source": "FTNN 新聞網",
-          "published": "2026-08-06T08:44:00+08:00",
-          "description": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 FTNN 新聞網",
-          "event": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 - FTNN 新聞網",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：2308 台達電。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 0,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "2308"
-          ],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "NVIDIA指定權決定贏家！GB200 NVL72供應鏈全解析 台灣關鍵廠商一次看 - 報新聞",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQWVhwaXRtcXRHRm55Z3FUNXBrRHNjcTAwLWx6NlpiRk84eFdzMzUyNE9BSldfYVlYc0p5dWpUeUtEdjlULVIyeFFYSUF2THdzN0doSF91WWJYYS15bjhqR3VBb1dVUEV1S0puUVUtNVAzRktkc24tSFhTT2tVcE9DbVRKaFFYczZOZ1R0WG4zT3VxbV9POGFNaHJVYVRvRVVuSEN6d08xTVcyY00?oc=5",
-          "source": "報新聞",
-          "published": "2026-08-06T01:26:09+08:00",
-          "description": "NVIDIA指定權決定贏家！GB200 NVL72供應鏈全解析 台灣關鍵廠商一次看 報新聞",
-          "event": "NVIDIA指定權決定贏家！GB200 NVL72供應鏈全解析 台灣關鍵廠商一次看 - 報新聞",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 0,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "散熱"
-          ]
         }
       ]
     },
@@ -699,24 +902,26 @@ const REPORT = {
       "name": "光通訊／CPO",
       "description": "CPO、矽光子、800G、1.6T、光模組、光收發、InP、雷射。",
       "core_stocks": [],
-      "heat_score": 73,
+      "heat_score": 85,
       "positive_count": 1,
-      "negative_count": 1,
-      "risk_flags": [],
+      "negative_count": 2,
+      "risk_flags": [
+        "獲利了結"
+      ],
       "topic_view": "光通訊／CPO 題材熱度偏高，適合觀察是否有族群同步與量價延續，不宜只看單一個股急拉。",
       "items": [
         {
-          "title": "光通訊族群點火！波若威、聯鈞、華星光等多檔全噴漲停 - TVBS新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5oUmR5MUd4SjdJMkpURV9ROVhGWjY0REY0VVNGRVh5U2RxMFBFLXlLbHo4ZGw4TzRLa29PQ1JobGk5U0NDM1hGZV9qUnptUQ?oc=5",
-          "source": "TVBS新聞網",
-          "published": "2026-08-05T10:23:00+08:00",
-          "description": "光通訊族群點火！波若威、聯鈞、華星光等多檔全噴漲停 TVBS新聞網",
-          "event": "光通訊族群點火！波若威、聯鈞、華星光等多檔全噴漲停 - TVBS新聞網",
+          "title": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 - 蕃新聞",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9QQ0dtRkxiLUxqTlVWaDRNcDVEVmpsQi1ZVDF1UjhEV0lJOFlRdEJPN0NWWXNSczdTMWJfZm5pQ0ZaYkRzN1gwUzB6T0hVaVJ2a0E?oc=5",
+          "source": "蕃新聞",
+          "published": "2026-08-06T22:32:00+08:00",
+          "description": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 蕃新聞",
+          "event": "1.6T/CPO缺料警報 輝達豪砸40億美元搶光！InP雷射爆結構性大短缺 - 蕃新聞",
           "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
           "topic_id": "optical",
           "topic_name": "光通訊／CPO",
           "source_grade": "C_參考",
-          "relevance_score": 10,
+          "relevance_score": 18,
           "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
@@ -726,12 +931,12 @@ const REPORT = {
           ]
         },
         {
-          "title": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ - 優分析UAnalyze",
-          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBrdG9JSGxIb2lZLVduWkRJenZuRlhVYWs3LXkweWpQZEx4UldpX1FlTEZfYWZXS3QyUUUwNzlwZDJ1T0hEQm83VkhpOEc5NFgzcnNwY3F3?oc=5",
-          "source": "優分析UAnalyze",
-          "published": "2026-08-05T19:30:00+08:00",
-          "description": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ 優分析UAnalyze",
-          "event": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ - 優分析UAnalyze",
+          "title": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ - news.cnyes.com",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE55ZDR5VjBvdUVQLWtCRHNXcnYxMGkxQTZNTTFqbW5mYkVyZUtIdlZmWFFYY0pqZWl0MjEwMXVzSHEyNFNvOUxGWlBEcnZ5cGFwUWo4?oc=5",
+          "source": "news.cnyes.com",
+          "published": "2026-08-06T18:10:30+08:00",
+          "description": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ news.cnyes.com",
+          "event": "光通訊不能不知道的事！InP 雷射供不應求，銅纜生命週期可能比市場預期更長？ - news.cnyes.com",
           "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
           "topic_id": "optical",
           "topic_name": "光通訊／CPO",
@@ -766,17 +971,79 @@ const REPORT = {
           ]
         },
         {
-          "title": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 - 東森新聞",
-          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE04M0tMSWdmY3lqR0ZQR1NndVNiVDl0clNwSUJtMzAxWnRGZDRTdVhGdk44M3FVR3VvRHJCajc1Y2dwWFE4TTJtajRpUGpkVlFIYjZDSzRPUQ?oc=5",
-          "source": "東森新聞",
+          "title": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 - 東森電視",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBqczEtbW1hcDVkU1pFMkMyYm5WLUVVc19EWEFzMUFkZUFJWDE3MnJBbHVENWxCVnhtLXhVRDJpUFhMR1cyNElpUlVESWhnLWpnNWF5Y1FR?oc=5",
+          "source": "東森電視",
           "published": "2026-08-05T11:10:00+08:00",
-          "description": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 東森新聞",
-          "event": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 - 東森新聞",
+          "description": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 東森電視",
+          "event": "傳川普擬禁「中國製光收發模組」CPO嗨翻7檔攻漲停 - 東森電視",
           "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
           "topic_id": "optical",
           "topic_name": "光通訊／CPO",
           "source_grade": "C_參考",
           "relevance_score": 6,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "光通訊／CPO"
+          ]
+        },
+        {
+          "title": "【08/07 產業即時新聞】光通訊即時盤中承壓走弱，部分CPO概念股高檔獲利了結 - CMoney投資網誌",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQLVZOMzFjR3NuYmR4ZXUtWXcyRFZ3eUdGMDJmRnlHZzBGeGpjTmo3Mzlmd2tJbjdfTHFNNElHUmdNUC1JdjFub21mV1ZsQnFmaVQ1QVluYVFMczZiYzM0UlY3R3c2dEI4RmpBb05SREpMT3VJcUdMOE96bU13UFNYTXZfYTdkVG1rWG1mN3hB?oc=5",
+          "source": "CMoney投資網誌",
+          "published": "2026-08-07T09:33:32+08:00",
+          "description": "【08/07 產業即時新聞】光通訊即時盤中承壓走弱，部分CPO概念股高檔獲利了結 CMoney投資網誌",
+          "event": "【08/07 產業即時新聞】光通訊即時盤中承壓走弱，部分CPO概念股高檔獲利了結 - CMoney投資網誌",
+          "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
+          "topic_id": "optical",
+          "topic_name": "光通訊／CPO",
+          "source_grade": "C_參考",
+          "relevance_score": 5,
+          "positive_count": 0,
+          "negative_count": 1,
+          "risk_flags": [
+            "獲利了結"
+          ],
+          "stocks": [],
+          "matched_topics": [
+            "光通訊／CPO"
+          ]
+        },
+        {
+          "title": "光通訊族群好夯！聯亞急拉漲停 智邦、上詮等跟著漲 - TVBS新聞網",
+          "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9RaFRieThabk8yRnMxUDN1Zi04TUNOVDFlNTlMOHBNNzcyc1FvR2MzU01UanU4em1nTzZGNUZhRUdZbTVNcV9kT1ZxNlhMQQ?oc=5",
+          "source": "TVBS新聞網",
+          "published": "2026-08-06T11:44:00+08:00",
+          "description": "光通訊族群好夯！聯亞急拉漲停 智邦、上詮等跟著漲 TVBS新聞網",
+          "event": "光通訊族群好夯！聯亞急拉漲停 智邦、上詮等跟著漲 - TVBS新聞網",
+          "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
+          "topic_id": "optical",
+          "topic_name": "光通訊／CPO",
+          "source_grade": "C_參考",
+          "relevance_score": 5,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "光通訊／CPO"
+          ]
+        },
+        {
+          "title": "采鈺Q3營收估季增4-6% 1.6T產品年底導入量產 - news.cnyes.com",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBxV3BkYnJFQk9oUHlkWnY2MzJFRXBLdzB1RGJKYzBwYlhQUUZzSVo3Z0ZqbHY1M1VsUXF1SmhRUF9RalBzUnpRN1pMUGRBN00?oc=5",
+          "source": "news.cnyes.com",
+          "published": "2026-08-06T18:50:50+08:00",
+          "description": "采鈺Q3營收估季增4-6% 1.6T產品年底導入量產 news.cnyes.com",
+          "event": "采鈺Q3營收估季增4-6% 1.6T產品年底導入量產 - news.cnyes.com",
+          "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
+          "topic_id": "optical",
+          "topic_name": "光通訊／CPO",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
           "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
@@ -804,26 +1071,6 @@ const REPORT = {
           "matched_topics": [
             "光通訊／CPO"
           ]
-        },
-        {
-          "title": "川普封殺中「1產品」？CPO嗨翻 7檔漲停 - 鏡週刊Mirror Media",
-          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1zSHhvWldJQ2JBdlU0NHpJaGxOU28xUFNETV9EWGlBTWFJaDYxR0lmTk9pUzUzVGJYLVJzUWhhY05KVTdkWktqVnNkVWdabjhvbEZMYUh6SjE5d1kzLUliOFdR0gFiQVVfeXFMTXNIeG9aV0lDYkF2VTQ0eklobE5TbzFQU0RNX0RYaUFNYUloNjFHSWZOT2lTNTNUYlgtUnNRaGFjTkpVN2RaS2pWc2RVZ1puOG9sRkxhSHpKMTl3WTMtSWI4V1E?oc=5",
-          "source": "鏡週刊Mirror Media",
-          "published": "2026-08-05T14:50:00+08:00",
-          "description": "川普封殺中「1產品」？CPO嗨翻 7檔漲停 鏡週刊Mirror Media",
-          "event": "川普封殺中「1產品」？CPO嗨翻 7檔漲停 - 鏡週刊Mirror Media",
-          "view": "光通訊與 CPO 偏中長線成長題材，短線需分辨實際出貨進度與純概念拉抬。",
-          "topic_id": "optical",
-          "topic_name": "光通訊／CPO",
-          "source_grade": "C_參考",
-          "relevance_score": 3,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "光通訊／CPO"
-          ]
         }
       ]
     },
@@ -835,12 +1082,32 @@ const REPORT = {
         "3044",
         "4958"
       ],
-      "heat_score": 52,
+      "heat_score": 83,
       "positive_count": 3,
       "negative_count": 0,
       "risk_flags": [],
-      "topic_view": "PCB／CCL 有題材但不是最強主線，適合等資金輪動或出現明確營收／法說訊號。",
+      "topic_view": "PCB／CCL 今日新聞熱度高且偏正向，可列為盤前第一層觀察；但若開高急拉，要避免追在情緒高點。",
       "items": [
+        {
+          "title": "【07/21 產業即時新聞】電子上游-PCB-材料設備強勢上攻，AI題材點燃CCL廠動能！-stock_notes - CMoney投資網誌",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQjNWVk5kMnRXNXhLV2pMMEZVZDlLRWk5dV9hb1VkVVA4M285RlRSMEFjSXZQZUFsX01ZMmI5eTRVSmxPdTVrZzNTenhfQ3B3cS02Q2I3QjNsQzhOVVhzcnRBQ2diSjljMHFDVGt4Y2tiN2NsaDZYV1ZRcDNFMEczZ1dvWHFuRFVqYTBjY2RYVVJzNHVIblF3MQ?oc=5",
+          "source": "CMoney投資網誌",
+          "published": "2026-08-06T12:45:44+08:00",
+          "description": "【07/21 產業即時新聞】電子上游-PCB-材料設備強勢上攻，AI題材點燃CCL廠動能！-stock_notes CMoney投資網誌",
+          "event": "【07/21 產業即時新聞】電子上游-PCB-材料設備強勢上攻，AI題材點燃CCL廠動能！-stock_notes - CMoney投資網誌",
+          "view": "PCB／CCL 仍是 AI 伺服器升級主線，觀察高階材料與伺服器板是否有量價同步。",
+          "topic_id": "pcb_ccl",
+          "topic_name": "PCB／CCL",
+          "source_grade": "C_參考",
+          "relevance_score": 12,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "PCB／CCL"
+          ]
+        },
         {
           "title": "【08/05 每日解盤】台股大漲千點，CCL、PCB 回神? - CMoney投資網誌",
           "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE13XzFJUVVRcFd6SjJ6MHVkMG8tM0ZnUmNEeDNhTVVxTGIzdGxZVkR1NWVOdHBFMWtxQVhuaVZjQUthRlh6SHR4ZmhBWTNvLWVnLVJqWkN4X09jTjFWbWt3bml6RFNXSjNfdTdqdUVZTFVlTVIwcVA1Q0M5aTdqZw?oc=5",
@@ -862,18 +1129,78 @@ const REPORT = {
           ]
         },
         {
-          "title": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 - 自由時報",
-          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBGUVB1SC0zemNqT2JFRnB1QWMzOVBVTVVUMlhtNEFxSGQwSGZwcG00TmxkMjNqTE54Vk5mYk1UV3JZdU5WWTR6bDlDMkxUemplaEswM0x1d0I?oc=5",
-          "source": "自由時報",
-          "published": "2026-08-05T18:37:00+08:00",
-          "description": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 自由時報",
-          "event": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 - 自由時報",
+          "title": "熱門股／7月營收寫新高！聯茂亮燈漲停、5天大漲逾5成台光電翻紅走高| 產經 - 非凡新聞台",
+          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAzVFVyZFVpLVdIN29yOFJjSFBLUFJqQlFCOGpsS2FKY0x0Mi1oc3E3bHJNMTdkMGYxVTF1aU5kdVNvaTNtSEphNWlNaVhqeGxORjhleHN4Mzc4blJPQWJXbQ?oc=5",
+          "source": "非凡新聞台",
+          "published": "2026-08-06T09:10:21+08:00",
+          "description": "熱門股／7月營收寫新高！聯茂亮燈漲停、5天大漲逾5成台光電翻紅走高| 產經 非凡新聞台",
+          "event": "熱門股／7月營收寫新高！聯茂亮燈漲停、5天大漲逾5成台光電翻紅走高| 產經 - 非凡新聞台",
+          "view": "PCB／CCL 仍是 AI 伺服器升級主線，觀察高階材料與伺服器板是否有量價同步。",
+          "topic_id": "pcb_ccl",
+          "topic_name": "PCB／CCL",
+          "source_grade": "C_參考",
+          "relevance_score": 5,
+          "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "PCB／CCL"
+          ]
+        },
+        {
+          "title": "CCL火燒上游！ 「化學老手」被逼成神隊友 5台廠默默發財 - 東森電視",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5ZSXNzM19pVVVmUEozNTlCM0RObF9qaVBfVjZiM2o3X0NhT1ppNzBSWGVtb2p6cU9jWV8yM2s3bzRDRjZjeGwzMGZyeHh2dEhjbFlJT1Y3ZUFfZw?oc=5",
+          "source": "東森電視",
+          "published": "2026-08-07T10:03:00+08:00",
+          "description": "CCL火燒上游！ 「化學老手」被逼成神隊友 5台廠默默發財 東森電視",
+          "event": "CCL火燒上游！ 「化學老手」被逼成神隊友 5台廠默默發財 - 東森電視",
+          "view": "PCB／CCL 仍是 AI 伺服器升級主線，觀察高階材料與伺服器板是否有量價同步。",
+          "topic_id": "pcb_ccl",
+          "topic_name": "PCB／CCL",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "PCB／CCL"
+          ]
+        },
+        {
+          "title": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 - 自由財經",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Ubi16eHdnMFRwVUZsQjdpMkJvN0QxbHB2QlZGcGU0a1N1UmpKOE1Majc2U21Xc21JZ1I1T25IY0hKbl9MM210UmFIY0pQZjkxbnNmeGpxYVcyZEZkeFdN?oc=5",
+          "source": "自由財經",
+          "published": "2026-08-06T09:37:23+08:00",
+          "description": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 自由財經",
+          "event": "焦點股》聯茂：7月營收飆新高 泰國擴產與漲價效益顯現 - 自由財經",
           "view": "PCB／CCL 仍是 AI 伺服器升級主線，觀察高階材料與伺服器板是否有量價同步。",
           "topic_id": "pcb_ccl",
           "topic_name": "PCB／CCL",
           "source_grade": "C_參考",
           "relevance_score": 3,
           "positive_count": 2,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "PCB／CCL"
+          ]
+        },
+        {
+          "title": "台燿營收／7月創新高、年增 121.5% 上半年賺逾一股本 - UDN",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEQzlQbjJYSDktaG5UckJHcE5yQ3VsY0poM1dmeGszUmxTUUNmaF9sNDU1YmFSdTAxelI0cU1LdEwyRjJrMHdud2ZzdmRvalBtRlE0VHJ30gFWQVVfeXFMUERDOVBuMlhIOS1oblRyQkdwTnJDdWxjSmgzV2Z4azNSbFNRQ2ZoX2w0NTViYVJ1MDF6UjRxTUt0TDJGMmswd253ZnN2ZG9qUG1GUTRUcnc?oc=5",
+          "source": "UDN",
+          "published": "2026-08-06T21:11:53+08:00",
+          "description": "台燿營收／7月創新高、年增 121.5% 上半年賺逾一股本 UDN",
+          "event": "台燿營收／7月創新高、年增 121.5% 上半年賺逾一股本 - UDN",
+          "view": "PCB／CCL 仍是 AI 伺服器升級主線，觀察高階材料與伺服器板是否有量價同步。",
+          "topic_id": "pcb_ccl",
+          "topic_name": "PCB／CCL",
+          "source_grade": "C_參考",
+          "relevance_score": 1,
+          "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [],
@@ -890,25 +1217,25 @@ const REPORT = {
       "core_stocks": [
         "2327"
       ],
-      "heat_score": 36,
-      "positive_count": 1,
+      "heat_score": 32,
+      "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
       "topic_view": "被動元件 今日新聞熱度較低，除非個股有重大消息，否則先列為次要觀察。",
       "items": [
         {
-          "title": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GbEcwSXllUnMyWWVhNTBDcm01ZThyQ2RtM0phVXppMG5HTzlCdC1KSzBieUp5eHpRY09YdXZJdDF5bEVPLWxGWTRieVNKcUtqbndxVmVlcTJPdW5VRWZPYU9xdTRHTHRlU2pJYXZqLVdLcmRNSGMySnJYTzMxZlHSAV9BVV95cUxPVVNzQ3F6ZFdfMTFWVzd5LWVzUXVNS29SdTB6cDFUdC1qMFppTVhtbWhFQkY0VHZKRzFTRmIxNDNDdS1zZ2N0QklsQjhFMXZySjZiNGdBd0JERm1Ybk9LWQ?oc=5",
+          "title": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0tQ0g4MGxubm1tWllwbGhVUV81MGp6Y3ZVbjF4RnlhUXFQTkRTZTQ3alQ3V1gtSDJ5SGNFMXk5UlFpQjJqb18yV0lYM1E1LVRnWHFXOFhRSlQzRUpDUGc3YW5LODhQdmRjYWk3aTZDTVNJd2E0cG13SGo0ZlZVTnfSAV9BVV95cUxPWjlaamMtSk93MFdfVVBqSWJtWFliRUNKWkdwVFIzQVZVMGRKRkR3TUU3SGtzNVRBSTlCT3RTZmkyWFRuYjEyTDluM054ZGp1LWlTN0EwN25CTTFSc1M4MA?oc=5",
           "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
-          "description": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ 經濟日報",
-          "event": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
+          "published": "2026-08-05T17:00:00+08:00",
+          "description": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ 經濟日報",
+          "event": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
           "view": "被動元件要看 MLCC、電阻、電感報價與 AI／車用需求是否同步改善。 關聯標的：2327 國巨。",
           "topic_id": "passive",
           "topic_name": "被動元件",
           "source_grade": "B_主流財經",
-          "relevance_score": 5,
-          "positive_count": 1,
+          "relevance_score": 4,
+          "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [
@@ -927,30 +1254,28 @@ const REPORT = {
       "core_stocks": [
         "2308"
       ],
-      "heat_score": 43,
+      "heat_score": 42,
       "positive_count": 1,
       "negative_count": 0,
       "risk_flags": [],
       "topic_view": "電源／電力管理 今日新聞熱度較低，除非個股有重大消息，否則先列為次要觀察。",
       "items": [
         {
-          "title": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 - 台視全球資訊網",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeEltRU9ZT3NHSHhlcEtUZUZYSXNCYzFRVnhZVmIybEJOalVRRl9uYVlfUFQzUFFIbjNBSWMzN3llcVhDNFN0MHdyX1JuWVZxUGRSSE1idnUtYTR0WkNKWTg2UlhSRWxKX1Zscm9YLXhxSHY0TVB2TlV6d2Fac3RGc1ZodDllZ25yNEZvbnN2b2k5Zw?oc=5",
-          "source": "台視全球資訊網",
-          "published": "2026-08-04T12:20:35+08:00",
-          "description": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 台視全球資訊網",
-          "event": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 - 台視全球資訊網",
-          "view": "AI 資料中心用電需求上升，電源與電力管理偏中長線，但仍需看法人承接。 關聯標的：2308 台達電。",
+          "title": "AI電力剛需引爆BBU商機！AES營收連四季創新高強勢領軍 - CMoney投資網誌",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1nZ0VaT0NUczF0Mk81UVF4RTh1bHpDYWRrZUthNmpZem9xcEltVXBhR2NBQXozaHZhTXdhLWI0cHVFX3Y2NlpIR2pTdUVsa1RyNTlNMDE2Tl9Za2FMUEFheEZtZUpuRE9IcTFvN192Uk1TcFhZbndodVlvS1FTQQ?oc=5",
+          "source": "CMoney投資網誌",
+          "published": "2026-08-06T16:00:16+08:00",
+          "description": "AI電力剛需引爆BBU商機！AES營收連四季創新高強勢領軍 CMoney投資網誌",
+          "event": "AI電力剛需引爆BBU商機！AES營收連四季創新高強勢領軍 - CMoney投資網誌",
+          "view": "AI 資料中心用電需求上升，電源與電力管理偏中長線，但仍需看法人承接。",
           "topic_id": "power",
           "topic_name": "電源／電力管理",
           "source_grade": "C_參考",
-          "relevance_score": 4,
+          "relevance_score": 3,
           "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
-          "stocks": [
-            "2308"
-          ],
+          "stocks": [],
           "matched_topics": [
             "電源／電力管理"
           ]
@@ -983,16 +1308,36 @@ const REPORT = {
       "description": "DRAM、NAND、HBM、SSD、模組、報價與缺貨循環。",
       "core_stocks": [],
       "heat_score": 100,
-      "positive_count": 6,
-      "negative_count": 0,
+      "positive_count": 5,
+      "negative_count": 1,
       "risk_flags": [],
       "topic_view": "記憶體 今日新聞熱度高且偏正向，可列為盤前第一層觀察；但若開高急拉，要避免追在情緒高點。",
       "items": [
         {
+          "title": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUE5rMkViMm9Yai12d2xrZDBWMzN6eThIQm8yZk5HVW14YWZIaFhUaVNnUFNZZjFhRUZLM0NtQ3ZxeC1vdjdoUEY4bjZiSlU4YnVtSzBrRWIzb1pma2d2X2tISG13dGpqTWlkOXpPNE10NDh1UnowWjF5MmMyWmc4MdIBX0FVX3lxTE0tQXF3ZjdDRE9Nb0w2bm93MmFzVVlYekc3OG84TDlNbjd0WjFqQWwxRWo5MnF0ZFpNNXFoNndZNzVQZmx5dzI4cE1Uc284ZUVSMEZHTE1xUm9lbDZTWDZz?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-06T13:19:13+08:00",
+          "description": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 經濟日報",
+          "event": "記憶體多頭再點火！旺宏、群聯鎖漲停 華邦電、威剛法說接棒 - 經濟日報",
+          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
+          "topic_id": "memory",
+          "topic_name": "記憶體",
+          "source_grade": "B_主流財經",
+          "relevance_score": 10,
+          "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "記憶體"
+          ]
+        },
+        {
           "title": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 - 經濟日報",
           "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9fZC02bWhMXzhZUENndGRYSElyNWtEeTJSeEd1TVI3a0pHU2VhQnpIRzYxQVZ2LXFSV21ZZER3UFBjNS1RVUtfUVAxb3JXeTUzNFRtNExtUGswd9IBX0FVX3lxTE52VjNPN0FEbnF2cFdYUFZNUC1NNVhNS1dSYm5KZ25FaVBHbVZSa2FGU0R4UUV3ei16OXZmMlJNUFZsVS1Hb3hWM1dzNTgyaDEzdEp3SFltSkhYZlplVWtj?oc=5",
           "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
+          "published": "2026-08-05T17:00:00+08:00",
           "description": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 經濟日報",
           "event": "台股記憶體逆勢噴發！南亞科、華邦電鎖漲停 台韓兩樣情原因曝光 - 經濟日報",
           "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
@@ -1009,78 +1354,18 @@ const REPORT = {
           ]
         },
         {
-          "title": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1abWp2RUkzY2t4X05tY0p6c2V4djN4RG9LMENaUm9NakhOUFBmTWs2UWVkamxpTFNUcmc4R2NLVjB3ZVcwaWV5XzNnSDF4UDROZi1MQnpIdTFtQdIBX0FVX3lxTFB5MW1MQnV3YVhpU0JOcWlnWjFGbm53M09IdnBwdEpTUkhJOE1SX29mMHZxLXc4VWJoNlA0Ny1zS3dJdTJqWnRkeEF0TmFxdWZEYkxhN1AyQm1kVHVfSUNN?oc=5",
-          "source": "經濟日報",
-          "published": "2026-08-05T18:00:00+08:00",
-          "description": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 經濟日報",
-          "event": "蘋果也缺貨！記憶體股持續轉強 4要角重返月線、外資喊南亞科上580元 - 經濟日報",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "B_主流財經",
-          "relevance_score": 7,
-          "positive_count": 1,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5icHVuNnpSVk5TTjRGUXNEaXhTTTZmMHNSSGZXMnhzdFo5N0E0cGVUdTVsY0xvdFlETFh3cjcwdFAyT0hmX2ZVX0ZfV3lQdjB5WDVvMy1oNGwxQdIBX0FVX3lxTE01WTFxRWR0ZmFpQ0xrdVZGdF9FU0J6cmNoRTltUnotXzI2N05qaXF4VnUxaks0MVYydkFuY01MX3NzcXpSaXppTEdtd2duN1BuWGkwUEVxSlZhak9ULTYw?oc=5",
-          "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
-          "description": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 經濟日報",
-          "event": "華強北 DRAM 價噴漲 現貨單周強彈14% 南亞科、華邦等受惠 - 經濟日報",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "B_主流財經",
-          "relevance_score": 6,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 - 今周刊",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUTdlM1UxRkwxVnNCQ1JPUmtBcEtkX3FhaFJZeVlKOHNTVmJyRVVvblJDRnJGbkl2aGNabk9IenczTmtwNTc2NUw1cDd3czN6aDRSZFVlQzgwbkZfSjI4RUpQaElLN193LS1ubmpoTTRjdVBUUkhkTFY0Y3RxNnQ4Uw?oc=5",
+          "title": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 - 今周刊",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONnJucEZ3NkZaMGwzeTBBMGt4aTZwbkNCWUxPTzRRMnhZbFlaNmFLT1lBeU1lc3FDLURKVjFJOFJwSUlfSm1TbVIydk85dGc1dWxSLWVDYnlFbmt2WkdweDNaN25HalBTbk5jbjlvQ00ybjM2UHVQZkFwYlEwX0ctcw?oc=5",
           "source": "今周刊",
-          "published": "2026-08-04T17:58:00+08:00",
-          "description": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 今周刊",
-          "event": "力積電、華邦電、南亞科、旺宏…記憶體第3天漲勢繼續，外資只剩它沒買超還賣！力積電漲停原因曝光 - 今周刊",
+          "published": "2026-08-06T11:45:00+08:00",
+          "description": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 今周刊",
+          "event": "不要只看南亞科華邦電！旺宏群聯和它都漲停，8記憶體股各擁啥利多？華邦電法說時間就在今天，牛肉大塊嗎 - 今周刊",
           "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
           "topic_id": "memory",
           "topic_name": "記憶體",
           "source_grade": "C_參考",
-          "relevance_score": 12,
+          "relevance_score": 13,
           "positive_count": 2,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 - 非凡新聞台",
-          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1NNFJyY0k5SWo1d1BJZlhPdTFUUDZMQ1Fma1lHQlBfMU4xckVPT3AxSjc1a1EwUzJ0Z3gwenphRGNVZ3RGVk5lRnRycnIzWjc0eWd2ZzlBaHhXamxiVi1F?oc=5",
-          "source": "非凡新聞台",
-          "published": "2026-08-05T01:25:15+08:00",
-          "description": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 非凡新聞台",
-          "event": "熱門股／記憶體供需續緊華邦電、南亞科、旺宏再飆漲停| 產經 - 非凡新聞台",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "C_參考",
-          "relevance_score": 11,
-          "positive_count": 1,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [],
@@ -1129,98 +1414,58 @@ const REPORT = {
           ]
         },
         {
-          "title": "南亞科(2408)與華邦電接近漲停，8月營收能否延續記憶體熱度？-林思齊 - CMoney投資網誌",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBQbFU2Q1BPUEhfbS1jcENwOEs5c0doZnkwRTd6SjJERGdDNWZHUndHTUkwYzh2NjYzTmhBaW5kZG14Nnh3THAxTGtJWEdYczlndkRCZVlvak0tWXJXZWhJTUtVLVpUYTRiXzJiR2ItUG1meEdkaEE2M3l6cFQ3WUE?oc=5",
+          "title": "記憶體缺到沒得選？連中國長鑫都被搶著用！記憶體缺貨潮升級，南亞科、群聯領軍噴發 - CMoney投資網誌",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1OLWk4d3ZRSnpFZUg0LUgtbFZ0S090YnZ5SW9tMGh0dDBfeXpMS1F5RFV4bS1SN3hfVkNoM2Z0VWl2Z1RkQlplblNWalZBUHJGOWxnN2FNRDQ1b0l5ZXlCd0ZjRTRBLXBzajlib3ZYcUtnYnpnRldBR0NaYjhKUQ?oc=5",
           "source": "CMoney投資網誌",
-          "published": "2026-08-04T19:58:43+08:00",
-          "description": "南亞科(2408)與華邦電接近漲停，8月營收能否延續記憶體熱度？-林思齊 CMoney投資網誌",
-          "event": "南亞科(2408)與華邦電接近漲停，8月營收能否延續記憶體熱度？-林思齊 - CMoney投資網誌",
+          "published": "2026-08-06T14:23:02+08:00",
+          "description": "記憶體缺到沒得選？連中國長鑫都被搶著用！記憶體缺貨潮升級，南亞科、群聯領軍噴發 CMoney投資網誌",
+          "event": "記憶體缺到沒得選？連中國長鑫都被搶著用！記憶體缺貨潮升級，南亞科、群聯領軍噴發 - CMoney投資網誌",
           "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
           "topic_id": "memory",
           "topic_name": "記憶體",
           "source_grade": "C_參考",
-          "relevance_score": 9,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "南亞科華邦電再飆近漲停，記憶體還能強多久？ - CMoney投資網誌",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5YZXNYTkMwU1lWVE9aOVU0U0VWWGhaWVR2aTRUaUJwR2Y2c2pZaGVNUW94b2FXMk9zd0tweTYtQm9lQjVMQkFIMGhPMzd2cmJ3OEhuTmtLcDRTdWN4aGtCX0hzczdmRW1YQjFrbWNUbnhyUUxfLWk0SjZEeERsZw?oc=5",
-          "source": "CMoney投資網誌",
-          "published": "2026-08-04T11:46:09+08:00",
-          "description": "南亞科華邦電再飆近漲停，記憶體還能強多久？ CMoney投資網誌",
-          "event": "南亞科華邦電再飆近漲停，記憶體還能強多久？ - CMoney投資網誌",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "C_參考",
-          "relevance_score": 9,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "記憶體漲聲響起！旺宏亮眼Q2獲投顧喊217元目標價成投信買超隊長「這檔」持漲價題材法說前夕飆漲受矚 - FTNN 新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9zS1NfVzFCcExBc2VPQ3ZOVzd2Z29RN0NmVjFjWVhqa3djUEhoYVM4VklqaUZ4Rnl2WDZoXzlGM0dxYS1WMC01OG5Tcw?oc=5",
-          "source": "FTNN 新聞網",
-          "published": "2026-08-05T19:00:00+08:00",
-          "description": "記憶體漲聲響起！旺宏亮眼Q2獲投顧喊217元目標價成投信買超隊長「這檔」持漲價題材法說前夕飆漲受矚 FTNN 新聞網",
-          "event": "記憶體漲聲響起！旺宏亮眼Q2獲投顧喊217元目標價成投信買超隊長「這檔」持漲價題材法說前夕飆漲受矚 - FTNN 新聞網",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "C_參考",
-          "relevance_score": 7,
-          "positive_count": 3,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "三星、SK海力士、美光2027年DRAM、HBM產能售罄，買家付訂金秘而不宣，生怕“進來太多人，自己分少了\" - hao.cnyes.com",
-          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBWLTBoLW9mODdZa2JCRl9PaFhvSVRELWVKUDczb29aaXZERHpRYV95d1lyZ09ZSnpGYkl0a2M4by1pV2o5MFA4eg?oc=5",
-          "source": "hao.cnyes.com",
-          "published": "2026-08-05T09:52:37+08:00",
-          "description": "三星、SK海力士、美光2027年DRAM、HBM產能售罄，買家付訂金秘而不宣，生怕“進來太多人，自己分少了\" hao.cnyes.com",
-          "event": "三星、SK海力士、美光2027年DRAM、HBM產能售罄，買家付訂金秘而不宣，生怕“進來太多人，自己分少了\" - hao.cnyes.com",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "C_參考",
-          "relevance_score": 7,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [],
-          "matched_topics": [
-            "記憶體"
-          ]
-        },
-        {
-          "title": "【08/05 產業即時新聞】電子上游-記憶體製造族群今日強勢上攻，受惠報價復甦及大廠看好後市，多頭買盤積極湧入。 - CMoney投資網誌",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMjFiZWJ3cEEtS0k2UzZ2dkR4aHRiZDBFSmNWXzluN3VCM2RqaWh2VC1XZUltdVFVb2lUTl93UjNueVNocjZSTjNiTUV0YVpfZzA5RGxqdmZlUjEwQVFxNURlVU4tV01CalhOMzBnT1NLM3E4RjA0djFTMXd2R0ExX0I1YnB1V3FVV1Rpcmx3?oc=5",
-          "source": "CMoney投資網誌",
-          "published": "2026-08-05T10:12:12+08:00",
-          "description": "【08/05 產業即時新聞】電子上游-記憶體製造族群今日強勢上攻，受惠報價復甦及大廠看好後市，多頭買盤積極湧入。 CMoney投資網誌",
-          "event": "【08/05 產業即時新聞】電子上游-記憶體製造族群今日強勢上攻，受惠報價復甦及大廠看好後市，多頭買盤積極湧入。 - CMoney投資網誌",
-          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
-          "topic_id": "memory",
-          "topic_name": "記憶體",
-          "source_grade": "C_參考",
-          "relevance_score": 4,
+          "relevance_score": 8,
           "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "記憶體"
+          ]
+        },
+        {
+          "title": "亮眼財報救不了？記憶體二哥重挫近5%！「這4檔」逆勢上漲扛起大旗 - 三立新聞",
+          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1hSEhEdDZadUFybVNGOWl2U3c3TDFQcWpCMFQzcmRrWVloTlBvaENMMzdEcEE2N0ZGR0JuMXNQeGZXNWJyX3BDT1pOOA?oc=5",
+          "source": "三立新聞",
+          "published": "2026-08-07T11:04:52+08:00",
+          "description": "亮眼財報救不了？記憶體二哥重挫近5%！「這4檔」逆勢上漲扛起大旗 三立新聞",
+          "event": "亮眼財報救不了？記憶體二哥重挫近5%！「這4檔」逆勢上漲扛起大旗 - 三立新聞",
+          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
+          "topic_id": "memory",
+          "topic_name": "記憶體",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 1,
+          "negative_count": 1,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "記憶體"
+          ]
+        },
+        {
+          "title": "美分析師：記憶體類股長線敘事未變，台灣為關鍵一環 - TechNews 科技新報",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQzVRRC1VUlZvczlrdm1PbENVaWxlRlFnYXNJVlNfeVRtSHAxOVV0OFZsVmNDYmtnQXhram52SkN0ZXAzcUk2Zm5jb3VpZWZSbmNLVXZZTDVJSXlaem1mREdNcUUyQ0FiSGJJMm1HdFhWTmFJaWk0c1NpRmsycE5FZ19hYTk5Y3BjOGFodjdFNlVPNzE4R0E?oc=5",
+          "source": "TechNews 科技新報",
+          "published": "2026-08-06T16:52:50+08:00",
+          "description": "美分析師：記憶體類股長線敘事未變，台灣為關鍵一環 TechNews 科技新報",
+          "event": "美分析師：記憶體類股長線敘事未變，台灣為關鍵一環 - TechNews 科技新報",
+          "view": "記憶體看報價、缺貨、HBM 與庫存循環；急漲後波動通常較大。",
+          "topic_id": "memory",
+          "topic_name": "記憶體",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [],
@@ -1235,23 +1480,23 @@ const REPORT = {
       "name": "金融",
       "description": "金控、銀行、保險、殖利率、資金防守與指數穩盤。",
       "core_stocks": [],
-      "heat_score": 38,
+      "heat_score": 45,
       "positive_count": 0,
       "negative_count": 0,
       "risk_flags": [],
-      "topic_view": "金融 今日新聞熱度較低，除非個股有重大消息，否則先列為次要觀察。",
+      "topic_view": "金融 有題材但不是最強主線，適合等資金輪動或出現明確營收／法說訊號。",
       "items": [
         {
-          "title": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQR3c2MUlwMWhkN0ZkeWFhN25ERmVUMzJGcGQ3VkROLXEyR1dNTzM0Z3o3djNtTFlmRlptMno2eHZiYzJYb2N1VVFveTFaUUpzU1ltNklhRzEyMHNDM3NndTM1VU8tREpPLU56OWlBV0J4OURqWDBTek5MeVJFQ0c0edIBX0FVX3lxTE5tcng0MU1lVUtTd0lVaHdFaGsxUVZvd2pJUUV6QWg2OExod2pfUklhY3RzaWhGYlM3MWRLWVBlU1c1Y3M3VnZIVzkya3R5OHFsSEJ6TUJoUmVVa1VWN1R3?oc=5",
-          "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
-          "description": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 經濟日報",
-          "event": "中信金獲利穩健 去年 EPS 4.08元刷新紀錄 股價穩守10日線支撐 - 經濟日報",
+          "title": "外資狂砍逾萬張！國家隊砸3億護盤「 這檔金融股」 - 三立新聞",
+          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9uLW9zSGtaM1Vob3A3ajFYMG1HZkxfUFFEUFdOdGRBSUdEa3g3VG5taHNFNkRLb0lsY2I1d0x6d2FtRmlyNE5yeGVVTQ?oc=5",
+          "source": "三立新聞",
+          "published": "2026-08-07T05:13:54+08:00",
+          "description": "外資狂砍逾萬張！國家隊砸3億護盤「 這檔金融股」 三立新聞",
+          "event": "外資狂砍逾萬張！國家隊砸3億護盤「 這檔金融股」 - 三立新聞",
           "view": "金融通常是防守與撐盤角色，電子股震盪時才更容易被資金短線關注。",
           "topic_id": "finance",
           "topic_name": "金融",
-          "source_grade": "B_主流財經",
+          "source_grade": "C_參考",
           "relevance_score": 3,
           "positive_count": 0,
           "negative_count": 0,
@@ -1262,16 +1507,36 @@ const REPORT = {
           ]
         },
         {
-          "title": "金融類股補漲上揚 這些金控股漲幅最大 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5lSWZHc3ZuUWxyZXpsd0FKMDV0bHJxLWY1Mkh2YnNNZndEdjI0RVdac2VaZXdhV1J0MC15aXdEY0FidkczMmVBdEgtR1dYRWJsdmpMa1puQUVyZ9IBX0FVX3lxTE5QcWNDZlBmOHRlUzFfSF9GMkx1NXk5cFBtT2pRMlNTeHBZS3RDVEtNU0tQSng3NGlmUms1VGxSTXNlaXpqMnpqcUpxUnBSMTB6bTNCZ2ZMZzRvcURMak5V?oc=5",
-          "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
-          "description": "金融類股補漲上揚 這些金控股漲幅最大 經濟日報",
-          "event": "金融類股補漲上揚 這些金控股漲幅最大 - 經濟日報",
+          "title": "外資狂砍！國家隊3億護盤「 這檔金融股」 - 鏡週刊Mirror Media",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9jZGhHSFlId2pJTHFJNXhCbzg5M2czVWd2OUR2M0FKbEhqZUF2eFZkWXpncEFsQXN3R25sRjdwOU9sai1xVVg2ZTNUamtSQndoX1VtVExrRVBqUWxnWnczYWxn0gFiQVVfeXFMT2NkaEdIWUh3aklMcUk1eEJvODkzZzNVZ3Y5RHYzQUpsSGplQXZ4VmRZemdwQWxBc3dHbmxGN3A5T2xqLXFVWDZlM1Rqa1JCd2hfVW1UTGtFUGpRbGdadzNhbGc?oc=5",
+          "source": "鏡週刊Mirror Media",
+          "published": "2026-08-07T05:10:00+08:00",
+          "description": "外資狂砍！國家隊3億護盤「 這檔金融股」 鏡週刊Mirror Media",
+          "event": "外資狂砍！國家隊3億護盤「 這檔金融股」 - 鏡週刊Mirror Media",
           "view": "金融通常是防守與撐盤角色，電子股震盪時才更容易被資金短線關注。",
           "topic_id": "finance",
           "topic_name": "金融",
-          "source_grade": "B_主流財經",
+          "source_grade": "C_參考",
+          "relevance_score": 3,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [],
+          "matched_topics": [
+            "金融"
+          ]
+        },
+        {
+          "title": "金融類股補漲上揚 這些金控股漲幅最大 | 經濟日報 - LINE TODAY",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9kazl4R3pFbmFFczNzWTZxd3NwX3o5NkZEb2UzcnN3M1VmV2ZuVjY3YjQzVkdTUUx2RjdGLW1PUHNjaUFEQ21CNVFtS2FGWlhJbDI2MXpn?oc=5",
+          "source": "LINE TODAY",
+          "published": "2026-08-05T18:30:48+08:00",
+          "description": "金融類股補漲上揚 這些金控股漲幅最大 | 經濟日報 LINE TODAY",
+          "event": "金融類股補漲上揚 這些金控股漲幅最大 | 經濟日報 - LINE TODAY",
+          "view": "金融通常是防守與撐盤角色，電子股震盪時才更容易被資金短線關注。",
+          "topic_id": "finance",
+          "topic_name": "金融",
+          "source_grade": "C_參考",
           "relevance_score": 1,
           "positive_count": 0,
           "negative_count": 0,
@@ -1302,9 +1567,9 @@ const REPORT = {
       "name": "台達電",
       "type": "持有股",
       "impact": "偏多",
-      "impact_score": 96,
+      "impact_score": 88,
       "related_topics": [
-        "散熱",
+        "AI 半導體／先進封裝",
         "焦點大事",
         "電源／電力管理"
       ],
@@ -1312,47 +1577,26 @@ const REPORT = {
       "watch_point": "看 AI 資料中心、電源與 BBU 題材是否延續，以及外資是否續買。",
       "articles": [
         {
-          "title": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 - FTNN 新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9BSC03a1F3Wks5N1R0ZHltLXJxQnVBR1c3U2Fsa3doQWNzbl9Tcy1WcS1RY1JhRnpuVWplYVVjVWxOUTN4WHRocVpEQQ?oc=5",
-          "source": "FTNN 新聞網",
-          "published": "2026-08-06T08:44:00+08:00",
-          "description": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 FTNN 新聞網",
-          "event": "電源雙雄火力全開！台達電與「這光電大廠」成資金新寵、EPS衝上3.07元 營運續衝高 - FTNN 新聞網",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：2308 台達電。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
+          "title": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "link": "https://news.google.com/rss/articles/CBMiiwVBVV95cUxQUkhDSGs1Vy1IbkFoanBxRWxYc1ZfczAzTmUwUXh1Y2dSTXhRcjRGRnNUek9WU2RoSzNxalNiVHdabUI2dU9OQzF6TXRYYmhhNm55U19VZUN2bE56ak13US1Wd21nS296WlRFQlhsWVBCb0NvVnQwLUlPNVMyZGYyVmNNTW9sMzU0OVVmQXY5czFkNERXVmpGMWtDVllBSFpVNWREUzR3b1FyWWI4eG81NFZBS0l6UmpIQ21qNFk4S25reFpzSGJnYUNLTG5KbGFtQkFzSExpSkZJWVoyWVBKeEUzZGQ1M3lYc1hUWURZNEJtV05mQUk2VDhURmhJa1R1SjloWFFEdUN4c0dBVlBrU0xpQmxEUXBsNGROdGhBLUU3cFlrQWcwbWhKSmVkYl9mU0taYnU5ZUJKdjJ5N1cxVUx6RmJmQk1UeEd4Y1ZzOUkwcFRZS3JjelhlTThPWFZLLWxTQnJ0Y01tYUd3dVN1ZnF1VzdLeFBpTVJySnBOZjVCTk9MZG1JZV9ISUhCbWt2TXd1UFJCUnNvZjNYTTQ0eDRZb0QyMGJEdUk4WFIyQ3ZRWWlnWHEtR2ZNR1hRcV9PR0Nna0R5aG5feVJfMldUZlEzWm5ZNGtqVDZ5WldlY1p2eDRDeFB2Q3JSc1hHX0pEa09CVEVROXhuZ1U5OTdzZldWWnV0QmI4STd6Y0tCeVlsTTdUc3AxTVNqMThBVGd6Umc1MlAzd0Z0RmpDZWtGX3hjdkl0WVBaZXpkWlpCRWVzLUx5cG9nOU1EWnY1cjhWOFJmd0VRUmJHbUliNWdha1lHelJUajNKbUh4SEhaMVd2WkdzVWRjTWpic0tiWE5JOFhfWG9OSTk4X3M?oc=5",
+          "source": "sinotrade.com.tw",
+          "published": "2026-08-05T19:00:51+08:00",
+          "description": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 sinotrade.com.tw",
+          "event": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：2308 台達電、2327 國巨。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
           "source_grade": "C_參考",
-          "relevance_score": 0,
-          "positive_count": 0,
+          "relevance_score": 1,
+          "positive_count": 1,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [
-            "2308"
+            "2308",
+            "2327"
           ],
           "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 - 台視全球資訊網",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeEltRU9ZT3NHSHhlcEtUZUZYSXNCYzFRVnhZVmIybEJOalVRRl9uYVlfUFQzUFFIbjNBSWMzN3llcVhDNFN0MHdyX1JuWVZxUGRSSE1idnUtYTR0WkNKWTg2UlhSRWxKX1Zscm9YLXhxSHY0TVB2TlV6d2Fac3RGc1ZodDllZ25yNEZvbnN2b2k5Zw?oc=5",
-          "source": "台視全球資訊網",
-          "published": "2026-08-04T12:20:35+08:00",
-          "description": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 台視全球資訊網",
-          "event": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能 - 台視全球資訊網",
-          "view": "AI 資料中心用電需求上升，電源與電力管理偏中長線，但仍需看法人承接。 關聯標的：2308 台達電。",
-          "topic_id": "power",
-          "topic_name": "電源／電力管理",
-          "source_grade": "C_參考",
-          "relevance_score": 4,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "2308"
-          ],
-          "matched_topics": [
-            "電源／電力管理"
+            "AI 半導體／先進封裝"
           ]
         }
       ]
@@ -1362,7 +1606,7 @@ const REPORT = {
       "name": "奇鋐",
       "type": "持有股",
       "impact": "偏多",
-      "impact_score": 72,
+      "impact_score": 88,
       "related_topics": [
         "散熱",
         "焦點大事"
@@ -1370,6 +1614,52 @@ const REPORT = {
       "risk_flags": [],
       "watch_point": "看散熱法說、液冷需求與高檔是否爆量不漲。",
       "articles": [
+        {
+          "title": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1pRVptU3RGY3oxQjJzY1dkM3NPQjNweHRYSkU4UW5EWTlFS0dGMWFyOGZJM3YwYkp3MlV4aUpLYXBXeThoSlNkdQ?oc=5",
+          "source": "鉅亨號",
+          "published": "2026-08-06T13:20:48+08:00",
+          "description": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 鉅亨號",
+          "event": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 8,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aUXgxc1Z6Z1RNNnE2RjZ6bDllSFNmUV81Z2FRUHYtSkppd1VUQVN1X0gyVkVickxyYnNkZ2V5VHB0dGRZdGZaRFlId0l3dEtVZlR3X2hrUVMtQdIBX0FVX3lxTE40U1ZIc0xPX0IzQzdkY2lUdE5CZkZpM1g2dERyQ245MGxWOW5rd2hVMm9uekpUR2J3V2JiazhjeUwyWExja2dzbVZoYVREUjVxVUV6amxlQ3NyeHhiSjJJ?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-06T18:00:00+08:00",
+          "description": "奇鋐、雙鴻 瞄準長天期 經濟日報",
+          "event": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 2,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
         {
           "title": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
           "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1tR1ZVSExJdW4tTm50dkpzaElhUWVvSVBVMjBaZlRsY0cxSHZPZFZVSDNydGdjTFp1N1FQeEsyaXRFQk1TbmVxSEdWZTBZVF92SWhCVFlkX1FaSFU5UlNB0gFfQVVfeXFMTW1HVlVITEl1bi1ObnR2SnNoSWFRZW9JUFUyMFpmVGxjRzFIdk9kVlVIM3J0Z2NMWnU3UVB4SzJpdEVCTVNuZXFIR1ZlMFlUX3ZJaEJUWWRfUVpIVTlSU0E?oc=5",
@@ -1388,51 +1678,6 @@ const REPORT = {
           "stocks": [
             "3017",
             "3324"
-          ],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 - TVBS新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA0T3J2SkdxVnhzdy1sVXB1U3R4LWJJbzN2T185cm1oUm9hZWZUZVliNFdyMV91VGRyYXpmM043QkdjS2lHT0lpY1lWQVNrX3c?oc=5",
-          "source": "TVBS新聞網",
-          "published": "2026-08-06T10:20:00+08:00",
-          "description": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 TVBS新聞網",
-          "event": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 - TVBS新聞網",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 6,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "3017",
-            "3324"
-          ],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "AI散熱革命來襲！功耗飆破極限，奇鋐、健策卡位高毛利散熱新戰場-交易玩家-台股 - 商周財富網",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2UldwR1poQk1DaWpXb0VvOGZ2LU1aaDMxbVhQNUZnZjFUUTZhdEF2bkFMaUdtUUhPNXFBUEVtSHFxMjNQdkdlSkRmMVdPQTljSjNwR3B5YXpfSUxMRTNlV2FLNEFvRW13bTdYc3F6eEMxUmpKbWc?oc=5",
-          "source": "商周財富網",
-          "published": "2026-08-06T09:53:47+08:00",
-          "description": "AI散熱革命來襲！功耗飆破極限，奇鋐、健策卡位高毛利散熱新戰場-交易玩家-台股 商周財富網",
-          "event": "AI散熱革命來襲！功耗飆破極限，奇鋐、健策卡位高毛利散熱新戰場-交易玩家-台股 - 商周財富網",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 3,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "3017"
           ],
           "matched_topics": [
             "散熱"
@@ -1445,7 +1690,7 @@ const REPORT = {
       "name": "雙鴻",
       "type": "持有股",
       "impact": "偏多",
-      "impact_score": 72,
+      "impact_score": 88,
       "related_topics": [
         "散熱",
         "焦點大事"
@@ -1454,12 +1699,35 @@ const REPORT = {
       "watch_point": "看散熱族群是否同步，若奇鋐強而雙鴻弱，要注意族群分化。",
       "articles": [
         {
-          "title": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1tR1ZVSExJdW4tTm50dkpzaElhUWVvSVBVMjBaZlRsY0cxSHZPZFZVSDNydGdjTFp1N1FQeEsyaXRFQk1TbmVxSEdWZTBZVF92SWhCVFlkX1FaSFU5UlNB0gFfQVVfeXFMTW1HVlVITEl1bi1ObnR2SnNoSWFRZW9JUFUyMFpmVGxjRzFIdk9kVlVIM3J0Z2NMWnU3UVB4SzJpdEVCTVNuZXFIR1ZlMFlUX3ZJaEJUWWRfUVpIVTlSU0E?oc=5",
+          "title": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1pRVptU3RGY3oxQjJzY1dkM3NPQjNweHRYSkU4UW5EWTlFS0dGMWFyOGZJM3YwYkp3MlV4aUpLYXBXeThoSlNkdQ?oc=5",
+          "source": "鉅亨號",
+          "published": "2026-08-06T13:20:48+08:00",
+          "description": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 鉅亨號",
+          "event": "《價值型投資 最新產業研究報告》雙鴻（3324）、奇鋐（3017） AI伺服器功耗升高 液冷散熱進入放量期 - 鉅亨號",
+          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
+          "topic_id": "thermal",
+          "topic_name": "散熱",
+          "source_grade": "B_主流財經",
+          "relevance_score": 8,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "3017",
+            "3324"
+          ],
+          "matched_topics": [
+            "散熱"
+          ]
+        },
+        {
+          "title": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aUXgxc1Z6Z1RNNnE2RjZ6bDllSFNmUV81Z2FRUHYtSkppd1VUQVN1X0gyVkVickxyYnNkZ2V5VHB0dGRZdGZaRFlId0l3dEtVZlR3X2hrUVMtQdIBX0FVX3lxTE40U1ZIc0xPX0IzQzdkY2lUdE5CZkZpM1g2dERyQ245MGxWOW5rd2hVMm9uekpUR2J3V2JiazhjeUwyWExja2dzbVZoYVREUjVxVUV6amxlQ3NyeHhiSjJJ?oc=5",
           "source": "經濟日報",
-          "published": "2026-08-06T00:20:35+08:00",
-          "description": "奇鋐、雙鴻 選逾三個月 經濟日報",
-          "event": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
+          "published": "2026-08-06T18:00:00+08:00",
+          "description": "奇鋐、雙鴻 瞄準長天期 經濟日報",
+          "event": "奇鋐、雙鴻 瞄準長天期 - 經濟日報",
           "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
           "topic_id": "thermal",
           "topic_name": "散熱",
@@ -1477,39 +1745,16 @@ const REPORT = {
           ]
         },
         {
-          "title": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 - TVBS新聞網",
-          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA0T3J2SkdxVnhzdy1sVXB1U3R4LWJJbzN2T185cm1oUm9hZWZUZVliNFdyMV91VGRyYXpmM043QkdjS2lHT0lpY1lWQVNrX3c?oc=5",
-          "source": "TVBS新聞網",
-          "published": "2026-08-06T10:20:00+08:00",
-          "description": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 TVBS新聞網",
-          "event": "散熱族群強勢表態！雙鴻、鴻準噴漲停 奇鋐等多檔同步漲 - TVBS新聞網",
-          "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
-          "topic_id": "thermal",
-          "topic_name": "散熱",
-          "source_grade": "C_參考",
-          "relevance_score": 6,
-          "positive_count": 0,
-          "negative_count": 0,
-          "risk_flags": [],
-          "stocks": [
-            "3017",
-            "3324"
-          ],
-          "matched_topics": [
-            "散熱"
-          ]
-        },
-        {
-          "title": "奇鋐、雙鴻 權證選逾三個月 - UDN",
-          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE54VEYzUWV3RnpWZWVZVzFESGwzZFF0NmxiTThtVGpGYlVQZzBxb19VeFMxODQyQTUtMlpPd2tVYzZNR1pLVUU3TXNBYzNlVlBu0gFWQVVfeXFMUFUtcUhheEt6WUJiRWNfQkJraE9iYlhNSlZHTlByTm5Ma2pGLWVSLVIxVS1EbWVtWlJpQUs0Y3BWZ2JUS3hrMk5xODVzUEdHc2ZhU2czQ2c?oc=5",
-          "source": "UDN",
+          "title": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1tR1ZVSExJdW4tTm50dkpzaElhUWVvSVBVMjBaZlRsY0cxSHZPZFZVSDNydGdjTFp1N1FQeEsyaXRFQk1TbmVxSEdWZTBZVF92SWhCVFlkX1FaSFU5UlNB0gFfQVVfeXFMTW1HVlVITEl1bi1ObnR2SnNoSWFRZW9JUFUyMFpmVGxjRzFIdk9kVlVIM3J0Z2NMWnU3UVB4SzJpdEVCTVNuZXFIR1ZlMFlUX3ZJaEJUWWRfUVpIVTlSU0E?oc=5",
+          "source": "經濟日報",
           "published": "2026-08-06T00:20:35+08:00",
-          "description": "奇鋐、雙鴻 權證選逾三個月 UDN",
-          "event": "奇鋐、雙鴻 權證選逾三個月 - UDN",
+          "description": "奇鋐、雙鴻 選逾三個月 經濟日報",
+          "event": "奇鋐、雙鴻 選逾三個月 - 經濟日報",
           "view": "散熱仍看 AI 伺服器功耗升級，但短線要防法說利多出盡或開高爆量不漲。 關聯標的：3017 奇鋐、3324 雙鴻。",
           "topic_id": "thermal",
           "topic_name": "散熱",
-          "source_grade": "C_參考",
+          "source_grade": "B_主流財經",
           "relevance_score": 2,
           "positive_count": 0,
           "negative_count": 0,
@@ -1528,8 +1773,8 @@ const REPORT = {
       "code": "3044",
       "name": "健鼎",
       "type": "持有股",
-      "impact": "中性偏多",
-      "impact_score": 56,
+      "impact": "偏多",
+      "impact_score": 72,
       "related_topics": [
         "PCB／CCL",
         "焦點大事"
@@ -1542,41 +1787,88 @@ const REPORT = {
       "code": "2330",
       "name": "台積電",
       "type": "持有股",
-      "impact": "中性偏多",
-      "impact_score": 48,
+      "impact": "偏多",
+      "impact_score": 64,
       "related_topics": [
         "AI 半導體／先進封裝",
         "焦點大事"
       ],
       "risk_flags": [],
       "watch_point": "先看台積電是否穩住指數與先進製程／封裝消息，若 ADR 或台幣偏弱，開盤承接更重要。",
-      "articles": []
+      "articles": [
+        {
+          "title": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 - 緯來新聞網",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPamhfNWZpRDBBVER1NHFTc3ZpUTVqVi0tZ1daZTYxV1lkbEx4NEk4NmJSdUF5UFVmNW1oX19Sc2RrbXZhMVllVnk1eUQtblRRMnYxX3dGOXJUaFpxTFB5TXB4UTlnWmZwNnd4RVZ2aERGTTFPYllBUU1XQ0NWQThZaEpHeklVUQ?oc=5",
+          "source": "緯來新聞網",
+          "published": "2026-08-06T17:54:00+08:00",
+          "description": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 緯來新聞網",
+          "event": "AI先進封裝競賽白熱化 台積電CoPoS布局受矚，供應鏈商機一次看 - 緯來新聞網",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：2330 台積電。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "C_參考",
+          "relevance_score": 6,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "2330"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        }
+      ]
     },
     {
       "code": "2327",
       "name": "國巨",
       "type": "持有股",
-      "impact": "中性",
-      "impact_score": 24,
+      "impact": "中性偏多",
+      "impact_score": 56,
       "related_topics": [
+        "AI 半導體／先進封裝",
         "被動元件"
       ],
       "risk_flags": [],
       "watch_point": "看被動元件是否有漲價、AI 伺服器或車用需求回溫消息。",
       "articles": [
         {
-          "title": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GbEcwSXllUnMyWWVhNTBDcm01ZThyQ2RtM0phVXppMG5HTzlCdC1KSzBieUp5eHpRY09YdXZJdDF5bEVPLWxGWTRieVNKcUtqbndxVmVlcTJPdW5VRWZPYU9xdTRHTHRlU2pJYXZqLVdLcmRNSGMySnJYTzMxZlHSAV9BVV95cUxPVVNzQ3F6ZFdfMTFWVzd5LWVzUXVNS29SdTB6cDFUdC1qMFppTVhtbWhFQkY0VHZKRzFTRmIxNDNDdS1zZ2N0QklsQjhFMXZySjZiNGdBd0JERm1Ybk9LWQ?oc=5",
+          "title": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "link": "https://news.google.com/rss/articles/CBMiiwVBVV95cUxQUkhDSGs1Vy1IbkFoanBxRWxYc1ZfczAzTmUwUXh1Y2dSTXhRcjRGRnNUek9WU2RoSzNxalNiVHdabUI2dU9OQzF6TXRYYmhhNm55U19VZUN2bE56ak13US1Wd21nS296WlRFQlhsWVBCb0NvVnQwLUlPNVMyZGYyVmNNTW9sMzU0OVVmQXY5czFkNERXVmpGMWtDVllBSFpVNWREUzR3b1FyWWI4eG81NFZBS0l6UmpIQ21qNFk4S25reFpzSGJnYUNLTG5KbGFtQkFzSExpSkZJWVoyWVBKeEUzZGQ1M3lYc1hUWURZNEJtV05mQUk2VDhURmhJa1R1SjloWFFEdUN4c0dBVlBrU0xpQmxEUXBsNGROdGhBLUU3cFlrQWcwbWhKSmVkYl9mU0taYnU5ZUJKdjJ5N1cxVUx6RmJmQk1UeEd4Y1ZzOUkwcFRZS3JjelhlTThPWFZLLWxTQnJ0Y01tYUd3dVN1ZnF1VzdLeFBpTVJySnBOZjVCTk9MZG1JZV9ISUhCbWt2TXd1UFJCUnNvZjNYTTQ0eDRZb0QyMGJEdUk4WFIyQ3ZRWWlnWHEtR2ZNR1hRcV9PR0Nna0R5aG5feVJfMldUZlEzWm5ZNGtqVDZ5WldlY1p2eDRDeFB2Q3JSc1hHX0pEa09CVEVROXhuZ1U5OTdzZldWWnV0QmI4STd6Y0tCeVlsTTdUc3AxTVNqMThBVGd6Umc1MlAzd0Z0RmpDZWtGX3hjdkl0WVBaZXpkWlpCRWVzLUx5cG9nOU1EWnY1cjhWOFJmd0VRUmJHbUliNWdha1lHelJUajNKbUh4SEhaMVd2WkdzVWRjTWpic0tiWE5JOFhfWG9OSTk4X3M?oc=5",
+          "source": "sinotrade.com.tw",
+          "published": "2026-08-05T19:00:51+08:00",
+          "description": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 sinotrade.com.tw",
+          "event": "台韓重點法說行事曆！本周關注台達電、聯發科、欣興、聯電、旺宏、國巨及韓股三星、海力士重要個股｜股市話題 - sinotrade.com.tw",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：2308 台達電、2327 國巨。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "C_參考",
+          "relevance_score": 1,
+          "positive_count": 1,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "2308",
+            "2327"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        },
+        {
+          "title": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0tQ0g4MGxubm1tWllwbGhVUV81MGp6Y3ZVbjF4RnlhUXFQTkRTZTQ3alQ3V1gtSDJ5SGNFMXk5UlFpQjJqb18yV0lYM1E1LVRnWHFXOFhRSlQzRUpDUGc3YW5LODhQdmRjYWk3aTZDTVNJd2E0cG13SGo0ZlZVTnfSAV9BVV95cUxPWjlaamMtSk93MFdfVVBqSWJtWFliRUNKWkdwVFIzQVZVMGRKRkR3TUU3SGtzNVRBSTlCT3RTZmkyWFRuYjEyTDluM054ZGp1LWlTN0EwN25CTTFSc1M4MA?oc=5",
           "source": "經濟日報",
-          "published": "2026-08-04T17:00:00+08:00",
-          "description": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ 經濟日報",
-          "event": "國巨創高，誰是第二？它本益比約20倍，業績倒吃甘蔗，受惠被動元件大行情，現在是低點嗎？ - 經濟日報",
+          "published": "2026-08-05T17:00:00+08:00",
+          "description": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ 經濟日報",
+          "event": "國巨、禾伸堂一直飆！被動元件到底還可不可以買？ - 經濟日報",
           "view": "被動元件要看 MLCC、電阻、電感報價與 AI／車用需求是否同步改善。 關聯標的：2327 國巨。",
           "topic_id": "passive",
           "topic_name": "被動元件",
           "source_grade": "B_主流財經",
-          "relevance_score": 5,
-          "positive_count": 1,
+          "relevance_score": 4,
+          "positive_count": 0,
           "negative_count": 0,
           "risk_flags": [],
           "stocks": [
@@ -1593,7 +1885,7 @@ const REPORT = {
       "name": "臻鼎-KY",
       "type": "關注股",
       "impact": "中性偏多",
-      "impact_score": 32,
+      "impact_score": 48,
       "related_topics": [
         "PCB／CCL"
       ],
@@ -1605,21 +1897,44 @@ const REPORT = {
       "code": "7769",
       "name": "鴻勁",
       "type": "關注股",
-      "impact": "中性",
-      "impact_score": 24,
+      "impact": "中性偏多",
+      "impact_score": 40,
       "related_topics": [
         "AI 半導體／先進封裝"
       ],
       "risk_flags": [],
       "watch_point": "看 AI／HPC／ASIC 測試設備需求與高價股估值壓力。",
-      "articles": []
+      "articles": [
+        {
+          "title": "鴻勁、緯穎 押寶120天 - 經濟日報",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1STEZoelNydU5UYzd5LUlXM3JMYk5zZXRFZ1NJSzFkMnFZRjRCajlYdGlFVmdUS0ZIbTJOSDdxRFlqMGJxendfMXJ6Z08xdkU4dU51YlpBbXVFd9IBX0FVX3lxTE01QVpHRENwbERRVG9OWHg4T2wwMDVtNTBXUUZxbGZEcngwam9Hdko0dmFhWWhDMFJORUllYWlWRHVKT2k1WldReTBKc3g4Q1c1ZFRNdFQyamY3RHZuR3pj?oc=5",
+          "source": "經濟日報",
+          "published": "2026-08-05T17:00:00+08:00",
+          "description": "鴻勁、緯穎 押寶120天 經濟日報",
+          "event": "鴻勁、緯穎 押寶120天 - 經濟日報",
+          "view": "重點看台積電、先進封裝、ASIC、HBM、測試設備是否延續訂單能見度。 關聯標的：7769 鴻勁。",
+          "topic_id": "ai_semiconductor",
+          "topic_name": "AI 半導體／先進封裝",
+          "source_grade": "B_主流財經",
+          "relevance_score": 1,
+          "positive_count": 0,
+          "negative_count": 0,
+          "risk_flags": [],
+          "stocks": [
+            "7769"
+          ],
+          "matched_topics": [
+            "AI 半導體／先進封裝"
+          ]
+        }
+      ]
     },
     {
       "code": "2360",
       "name": "致茂",
       "type": "關注股",
-      "impact": "中性",
-      "impact_score": 24,
+      "impact": "中性偏多",
+      "impact_score": 40,
       "related_topics": [
         "AI 半導體／先進封裝"
       ],
@@ -1631,8 +1946,8 @@ const REPORT = {
       "code": "5347",
       "name": "世界",
       "type": "關注股",
-      "impact": "中性",
-      "impact_score": 24,
+      "impact": "中性偏多",
+      "impact_score": 40,
       "related_topics": [
         "AI 半導體／先進封裝"
       ],
